@@ -33,7 +33,7 @@ const LANGUAGES = [
 
 const TRANSLATIONS: Record<string, any> = {
   en: {
-    heroTag: "Architect Workstation v5.8",
+    heroTag: "Architect Workstation v6.0",
     heroH1: "extract prompt from video",
     heroDesc: "The high-fidelity protocol to reverse-engineer visual DNA. One prompt can redefine your creative career and legacy.",
     ctaPricing: "Secure License",
@@ -42,10 +42,12 @@ const TRANSLATIONS: Record<string, any> = {
     kbDesc: "Technical insights on visual DNA extraction and high-end prompt engineering.",
     back: "Back to Home",
     buyNow: "Get Started Now",
-    loading: "Scanning Neural DNA..."
+    loading: "Scanning Neural DNA...",
+    featureTitle: "System Intelligence",
+    featureDesc: "8 Core engines driving the V-Reverse ecosystem"
   },
   pt: {
-    heroTag: "Workstation Arquiteto v5.8",
+    heroTag: "Workstation Arquiteto v6.0",
     heroH1: "extract prompt from video",
     heroDesc: "O protocolo de alta fidelidade para engenharia reversa de DNA visual. Um prompt pode redefinir sua carreira e legado.",
     ctaPricing: "Garantir Licença",
@@ -54,7 +56,9 @@ const TRANSLATIONS: Record<string, any> = {
     kbDesc: "Insights técnicos sobre extração de DNA visual e engenharia de prompt de elite.",
     back: "Voltar ao Início",
     buyNow: "Começar Agora",
-    loading: "Escaneando DNA Neural..."
+    loading: "Escaneando DNA Neural...",
+    featureTitle: "Inteligência do Sistema",
+    featureDesc: "8 Motores principais que impulsionam o ecossistema V-Reverse"
   }
 };
 
@@ -69,29 +73,14 @@ const POSTS: BlogPost[] = [
     category: "Technical",
     readTime: "25 min",
     content: `
-      <p>In the high-stakes world of generative AI, the ability to <strong>extract prompt from video</strong> is the ultimate "cheat code" for creators who refuse to settle for generic outputs. As we enter 2025, the market is saturated with "good" AI videos, but truly exceptional content requires a technical DNA that can only be found by deconstructing existing cinematic masterpieces.</p>
-      
+      <p>In the high-stakes world of generative AI, the ability to <strong>extract prompt from video</strong> is the ultimate "cheat code" for creators who refuse to settle for generic outputs.</p>
       <h2>The Core Philosophy of Extraction</h2>
-      <p>When you choose to <strong>extract prompt from video</strong>, you are performing a surgical operation on a visual frame. You aren't just looking for "a man in a suit." You are looking for the exact light diffraction on the fabric, the lens focal length (e.g., 35mm f/1.4), and the volumetric scattering of the atmosphere. To <strong>extract prompt from video</strong> is to understand the math behind the beauty.</p>
-      
+      <p>When you choose to <strong>extract prompt from video</strong>, you are performing a surgical operation on a visual frame. You aren't just looking for "a man in a suit." You are looking for the exact light diffraction on the fabric and lens focal length.</p>
       <div class="code-block">
-        // V-REVERSE PROTOCOL v5.8
-        PROTOCOL_INIT {
-          SAMPLING_RATE: 4K_UHD;
-          NEURAL_DECODER: VISION_TRANSFORMER_V4;
-          FEATURE_EXTRACTION: [LIGHT_VECTORS, TEXTURE_DNA, LENS_PHYSICS];
-          OUTPUT_FORMAT: MASTER_PROMPT_TECHNICAL;
-        }
+        // V-REVERSE PROTOCOL v6.0
+        const dna = await workstation.analyze("frame_01.png");
+        return dna.toPrompt();
       </div>
-
-      <h2>Phase 1: Cinematic Deconstruction</h2>
-      <p>The first step to <strong>extract prompt from video</strong> is identifying the 'Prime Frame'. Our engine scans the entire video sequence to find the frame with the highest semantic density. This is where the lighting is most complex and the texture detail is most pronounced. By focusing our energy here, we <strong>extract prompt from video</strong> data that carries the soul of the entire scene.</p>
-      
-      <h3>1. Lighting Physics (Kelvin & Lumens)</h3>
-      <p>To <strong>extract prompt from video</strong> successfully, the engine must calculate the light temperature. Is it 3200K (Tungsten) or 5600K (Daylight)? We use AI to measure the Kelvin temperature and convert it into specific tokens like "Golden Hour rim lighting" or "Blue hour cinematic mood".</p>
-      
-      <h3>2. Camera & Lens DNA</h3>
-      <p>Professional cinematographers use specific lenses for a reason. When you <strong>extract prompt from video</strong> with V-Reverse Pro, we identify the shallow depth of field (bokeh) and translate it into "shot on 85mm f/1.2 lens". This level of technical specificity is why our users' results look like real movies, not AI hallucinations.</p>
       <p>Technical depth in visual extraction requires understanding subsurface scattering and global illumination. Every photon counts when you <strong>extract prompt from video</strong>.</p>
     `
   },
@@ -106,106 +95,12 @@ const POSTS: BlogPost[] = [
     readTime: "20 min",
     content: `
       <h2>Why V-Reverse is the Best AI Image Prompt Generator</h2>
-      <p>An <strong>ai image prompt generator</strong> should not be a "black box" that gives you random words. It must be a precision instrument. Our <strong>ai image prompt generator</strong> is built on the premise of "Reverse Latent Mapping". This means we look at the pixel arrangement and predict what the original prompt *should* have been to generate that specific look.</p>
-      
-      <h2>Precision at Scale</h2>
-      <p>Using a professional <strong>ai image prompt generator</strong> allows studios to maintain visual consistency across thousands of assets. If you have a specific artistic style for a project, you can't rely on humans to manually prompt every time. You need an <strong>ai image prompt generator</strong> that can "see" the style and replicate it mathematically.</p>
-      
+      <p>An <strong>ai image prompt generator</strong> should not be a "black box" that gives you random words. It must be a precision instrument. Our engine uses Reverse Latent Mapping.</p>
       <div class="code-block">
-        [GENERATOR OUTPUT EXAMPLE]
-        "Cinematic wide shot, brutalist architecture, raw concrete texture, overcast moody lighting, shot on ARRI Alexa, 35mm lens --ar 16:9 --v 6.1"
+        [GENERATOR OUTPUT]
+        "Cinematic wide shot, brutalist architecture, raw concrete texture, overcast moody lighting, shot on ARRI Alexa."
       </div>
-      <p>This <strong>ai image prompt generator</strong> output ensures that every frame generated follows the same DNA. Architecture, fashion, and product design all benefit from the surgical precision of an <strong>ai image prompt generator</strong> like V-Reverse.</p>
-    `
-  },
-  {
-    id: "p3",
-    slug: "image-prompt-generator",
-    keyword: "image prompt generator",
-    title: "Image Prompt Generator: Revolutionizing Visual Design",
-    seoTitle: "Image Prompt Generator - Advanced Technical Extraction",
-    metaDesc: "The industry standard image prompt generator for high-end cinematic production and architectural visualization.",
-    category: "Design",
-    readTime: "18 min",
-    content: `
-      <h2>Workflow Optimization with an Image Prompt Generator</h2>
-      <p>Every professional designer needs a reliable <strong>image prompt generator</strong> in their toolkit. Why? Because the gap between vision and execution is usually filled with failed prompts. An <strong>image prompt generator</strong> closes that gap by analyzing existing references.</p>
-      <p>When you use an <strong>image prompt generator</strong>, you are training your own creative eye to see patterns in lighting and composition. It’s an educational tool as much as a production one. A high-quality <strong>image prompt generator</strong> will identify the contrast ratios and color palettes that make a specific style work.</p>
-    `
-  },
-  {
-    id: "p4",
-    slug: "image-to-prompt-generator",
-    keyword: "image to prompt generator",
-    title: "Technical Breakdown: Image to Prompt Generator Algorithms",
-    seoTitle: "Image to Prompt Generator - How the Neural DNA is Decoded",
-    metaDesc: "Deep dive into the neural networks behind our image to prompt generator. Learn how pixels become technical tokens.",
-    category: "Engineering",
-    readTime: "22 min",
-    content: `
-      <h2>Inside the Image to Prompt Generator</h2>
-      <p>How does an <strong>image to prompt generator</strong> actually work? It uses a combination of Vision Transformers (ViT) and Large Language Models (LLM). The <strong>image to prompt generator</strong> segments the image into semantic blocks: background, middle ground, and foreground.</p>
-      <p>Each block is then analyzed for its "Technical DNA". The <strong>image to prompt generator</strong> looks for lens flares, grain patterns, and specular highlights. This data is then reconstructed into a string of tokens that modern AI models like Midjourney and Sora can understand perfectly. This is the science of the <strong>image to prompt generator</strong>.</p>
-    `
-  },
-  {
-    id: "p5",
-    slug: "ai-image-prompt-generator-import",
-    keyword: "ai image prompt generator import",
-    title: "Studio Integration: AI Image Prompt Generator Import Methods",
-    seoTitle: "AI Image Prompt Generator Import - Scalable Studio Workflows",
-    metaDesc: "Learn how to integrate our ai image prompt generator import feature into your professional production pipeline.",
-    category: "Workflow",
-    readTime: "15 min",
-    content: `
-      <h2>The Import Protocol</h2>
-      <p>For large agencies, manual operation is impossible. You need an <strong>ai image prompt generator import</strong> system. Our workstation supports batch processing via the <strong>ai image prompt generator import</strong> protocol, allowing you to feed hundreds of references at once.</p>
-      <p>By standardizing the <strong>ai image prompt generator import</strong>, your team can maintain a unified "Look Book" that is machine-readable. This level of <strong>ai image prompt generator import</strong> sophistication is what separates amateur setups from professional AI studios.</p>
-    `
-  },
-  {
-    id: "p6",
-    slug: "ai-image-generator-prompt-offline",
-    keyword: "ai image generator prompt offline",
-    title: "Secure Privacy: AI Image Generator Prompt Offline Standards",
-    seoTitle: "AI Image Generator Prompt Offline - Enterprise Privacy Protocol",
-    metaDesc: "Keep your visual IP secure with our ai image generator prompt offline standard for high-profile client work.",
-    category: "Security",
-    readTime: "19 min",
-    content: `
-      <h2>Maximum Security Extraction</h2>
-      <p>Corporate clients demand privacy. The <strong>ai image generator prompt offline</strong> standard ensures that your reference images never touch a public server during the initial analysis phase. Even without a constant cloud connection, our <strong>ai image generator prompt offline</strong> logic can process the frame deconstruction.</p>
-      <p>This <strong>ai image generator prompt offline</strong> capability is critical for secret film projects or pre-release product designs. Security is the foundation of the <strong>ai image generator prompt offline</strong> philosophy in V-Reverse Pro.</p>
-    `
-  },
-  {
-    id: "p7",
-    slug: "video-to-prompt",
-    keyword: "video to prompt",
-    title: "Temporal Consistency: The Video to Prompt Era",
-    seoTitle: "Video to Prompt - Mastering Motion and Pacing in AI",
-    metaDesc: "Convert any video clip into a structured AI prompt. The master guide to video to prompt conversion.",
-    category: "Motion",
-    readTime: "24 min",
-    content: `
-      <h2>Beyond Frames: Video to Prompt</h2>
-      <p>Moving from static images to <strong>video to prompt</strong> requires analyzing the temporal dimension. How does the camera move? What is the frame rate? The <strong>video to prompt</strong> process captures the rhythm of the editing and the speed of the motion.</p>
-      <p>When you perform a <strong>video to prompt</strong> extraction, you are essentially creating a storyboard that includes timing directives. This is the future of cinematic AI: <strong>video to prompt</strong> deconstruction for high-end motion models.</p>
-    `
-  },
-  {
-    id: "p8",
-    slug: "video-to-prompt-generator",
-    keyword: "video to prompt generator",
-    title: "Pro Workstation: The Ultimate Video to Prompt Generator",
-    seoTitle: "Video to Prompt Generator - High Performance DNA Extraction",
-    metaDesc: "The technical specs and workflow for the world's most advanced video to prompt generator workstation.",
-    category: "Workstation",
-    readTime: "26 min",
-    content: `
-      <h2>The Architect's Terminal</h2>
-      <p>Our <strong>video to prompt generator</strong> is the heart of the V-Reverse system. It’s designed for high-throughput analysis. Every pixel in the 4K stream is a data point for the <strong>video to prompt generator</strong>.</p>
-      <p>Whether you're recreating a dream sequence or a high-speed car chase, the <strong>video to prompt generator</strong> provides the exact parameters to replicate the intensity. This is the professional standard for a <strong>video to prompt generator</strong> in 2025.</p>
+      <p>This <strong>ai image prompt generator</strong> output ensures that every frame generated follows the same DNA.</p>
     `
   }
 ];
@@ -219,26 +114,24 @@ const FAQ_ITEMS = [
 ];
 
 const FEATURES = [
-  { title: "Neural DNA Deconstruction", desc: "Surgical extraction of visual parameters using custom vision transformers." },
-  { title: "Cinematic Lens Emulation", desc: "Reverse-engineer focal lengths, apertures, and sensor dynamics." },
-  { title: "Lighting Physics Analysis", desc: "Detect Kelvin temperature, volumetric scattering, and global illumination." },
-  { title: "Multi-Engine Support", desc: "Native optimization for Midjourney, Sora, Runway, Kling, and Luma." },
-  { title: "Temporal Consistency", desc: "Track motion vectors and pacing across video sequences." },
-  { title: "Viral Social Kit", desc: "Auto-generated hooks, titles, and hashtags optimized for reach." },
-  { title: "4K Frame Sampling", desc: "High-resolution analysis for pixel-perfect detail extraction." },
-  { title: "Architect Portal Access", desc: "A private, high-performance terminal for professional creators." }
+  { title: "Neural DNA Deconstruction", desc: "Surgical extraction of visual parameters using custom vision transformers.", icon: "🧬" },
+  { title: "Cinematic Lens Emulation", desc: "Reverse-engineer focal lengths, apertures, and sensor dynamics.", icon: "📸" },
+  { title: "Lighting Physics Analysis", desc: "Detect Kelvin temperature, volumetric scattering, and global illumination.", icon: "💡" },
+  { title: "Multi-Engine Support", desc: "Native optimization for Midjourney, Sora, Runway, Kling, and Luma.", icon: "⚙️" },
+  { title: "Temporal Consistency", desc: "Track motion vectors and pacing across video sequences.", icon: "⏱️" },
+  { title: "Viral Social Kit", desc: "Auto-generated hooks, titles, and hashtags optimized for reach.", icon: "📈" },
+  { title: "4K Frame Sampling", desc: "High-resolution analysis for pixel-perfect detail extraction.", icon: "💎" },
+  { title: "Architect Portal Access", desc: "A private, high-performance terminal for professional creators.", icon: "🏛️" }
 ];
 
 const App: React.FC = () => {
   const [lang, setLang] = useState('en');
   const [view, setView] = useState<'home' | 'post'>('home');
   const [activePost, setActivePost] = useState<BlogPost | null>(null);
-  
   const [status, setStatus] = useState<AnalysisStatus>(AnalysisStatus.IDLE);
   const [result, setResult] = useState<VideoPromptResult | null>(null);
   const [targetModel, setTargetModel] = useState('sora');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  
   const [config, setConfig] = useState<WorkstationConfig>({
     fidelity: 95,
     detailLevel: 90,
@@ -253,10 +146,20 @@ const App: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
 
-  // HANDLE ROUTING VIA HASH
+  // Corrigindo o roteamento para evitar tela branca
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
+      
+      // Se o hash estiver vazio, volta para home
+      if (!hash || hash === "" || hash.startsWith("/")) {
+        setView('home');
+        setActivePost(null);
+        document.title = "Extract Prompt from Video | V-Reverse Pro Workstation";
+        return;
+      }
+
+      // Procura o post pelo slug
       const post = POSTS.find(p => p.slug === hash);
       if (post) {
         setActivePost(post);
@@ -264,14 +167,16 @@ const App: React.FC = () => {
         document.title = `${post.seoTitle} | V-Reverse Pro`;
         window.scrollTo(0, 0);
       } else {
-        setView('home');
-        setActivePost(null);
-        document.title = "Extract Prompt from Video | V-Reverse Pro Workstation";
+        // Fallback para home se o hash for inválido (como âncoras de scroll #pricing)
+        if (['pricing', 'workstation', 'faq'].includes(hash)) {
+          setView('home');
+          setActivePost(null);
+        }
       }
     };
 
     window.addEventListener('hashchange', handleHash);
-    handleHash(); // Run on mount
+    handleHash();
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
 
@@ -321,16 +226,16 @@ const App: React.FC = () => {
          </div>
       </section>
 
-      {/* CORE FEATURES GRID */}
+      {/* 8 FUNCTIONALITIES SECTION */}
       <section className="py-24 border-t border-white/5 max-w-7xl mx-auto px-4">
         <div className="text-center mb-20 space-y-4">
-          <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">System Intelligence</h2>
-          <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px]">Deconstructing the impossible</p>
+          <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">{t.featureTitle}</h2>
+          <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px]">{t.featureDesc}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {FEATURES.map((f, i) => (
             <div key={i} className="p-8 bg-white/[0.02] border border-white/10 rounded-[2rem] hover:bg-indigo-600/[0.05] transition-all group">
-              <IconSparkles className="w-6 h-6 text-indigo-500 mb-6 group-hover:scale-110 transition-transform" />
+              <span className="text-3xl mb-6 block group-hover:scale-110 transition-transform">{f.icon}</span>
               <h3 className="text-[10px] font-black uppercase tracking-widest mb-3 text-indigo-400">{f.title}</h3>
               <p className="text-slate-500 text-sm font-medium leading-relaxed">{f.desc}</p>
             </div>
@@ -357,11 +262,11 @@ const App: React.FC = () => {
                <h3 className="text-[10px] font-black uppercase tracking-widest text-indigo-400">Parameters</h3>
                <div className="space-y-6">
                   <div className="space-y-2">
-                    <div className="flex justify-between text-[9px] font-black uppercase text-slate-600"><span>Fidelity</span><span className="text-indigo-400">{config.fidelity} %</span></div>
+                    <div className="flex justify-between text-[9px] font-black uppercase text-slate-600"><span>Fidelity</span><span className="text-indigo-400">{config.fidelity}%</span></div>
                     <input type="range" min="0" max="100" value={config.fidelity} onChange={e => setConfig({...config, fidelity: parseInt(e.target.value)})} className="w-full accent-indigo-600" />
                   </div>
                   <div className="space-y-2">
-                    <div className="flex justify-between text-[9px] font-black uppercase text-slate-600"><span>Detail</span><span className="text-indigo-400">{config.detailLevel} %</span></div>
+                    <div className="flex justify-between text-[9px] font-black uppercase text-slate-600"><span>Detail</span><span className="text-indigo-400">{config.detailLevel}%</span></div>
                     <input type="range" min="0" max="100" value={config.detailLevel} onChange={e => setConfig({...config, detailLevel: parseInt(e.target.value)})} className="w-full accent-indigo-600" />
                   </div>
                </div>
@@ -409,69 +314,49 @@ const App: React.FC = () => {
         </div>
       )}
 
-      {/* PRICING */}
-      <section id="pricing" className="py-32 border-t border-white/5 space-y-16 bg-gradient-to-b from-transparent to-indigo-950/10">
+      {/* PRICING SECTION - UPDATED */}
+      <section id="pricing" className="py-32 border-t border-white/5 space-y-16">
         <div className="text-center space-y-3">
           <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter">License.</h2>
-          <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px]">Join the top 0.1% of creators</p>
+          <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px]">Select your operational model</p>
         </div>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-4">
           <div className="bg-white/[0.01] border border-white/10 rounded-[3rem] p-12 flex flex-col hover:border-indigo-500 transition-all">
-            <div className="flex justify-between items-start mb-8">
-              <div>
-                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4 block">Standard Plan</span>
-                <h3 className="text-5xl font-black uppercase italic mb-2">$29<span className="text-lg text-slate-600 tracking-normal font-bold">/monthly</span></h3>
-              </div>
-              <IconSparkles className="w-6 h-6 text-slate-700" />
+            <div className="flex justify-between mb-8">
+              <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Standard Access</span>
+              <span className="bg-indigo-600/10 text-indigo-400 px-3 py-1 rounded-full text-[8px] font-black uppercase">Monthly</span>
             </div>
-            <p className="text-slate-500 text-sm font-medium mb-10 leading-relaxed italic">Essential workstation access for rising architects. High-speed deconstruction and cinematic presets.</p>
-            <ul className="space-y-4 mb-10 border-y border-white/5 py-8">
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400">
-                <span className="text-indigo-500">✓</span> Full Terminal Access
-              </li>
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400">
-                <span className="text-indigo-500">✓</span> Midjourney & Sora Engines
-              </li>
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400">
-                <span className="text-indigo-500">✓</span> Viral Social Media Kit
-              </li>
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400 opacity-30">
-                <span>×</span> 4K Ultra Sampling
-              </li>
+            <h3 className="text-5xl font-black uppercase italic mb-8">$29<span className="text-lg text-slate-600">/monthly</span></h3>
+            <p className="text-slate-500 text-sm mb-10 leading-relaxed font-medium">For growing creators who need constant DNA deconstruction. Cancel anytime.</p>
+            <ul className="space-y-4 mb-10 flex-grow">
+              <li className="flex items-center gap-2 text-xs font-bold text-slate-400 tracking-tight">✓ Unlimited Master Prompt Extractions</li>
+              <li className="flex items-center gap-2 text-xs font-bold text-slate-400 tracking-tight">✓ Support for MJ v6 & Sora</li>
+              <li className="flex items-center gap-2 text-xs font-bold text-slate-400 tracking-tight">✓ Viral Social Media Kit Generator</li>
+              <li className="flex items-center gap-2 text-xs font-bold text-slate-400 tracking-tight opacity-30">× 4K Ultra Precision Sampling</li>
             </ul>
-            <a href={HOTMART_BASIC} className="block bg-white text-black text-center py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-600 hover:text-white transition-all shadow-xl">Subscribe Now</a>
+            <a href={HOTMART_BASIC} className="block bg-white text-black text-center py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-600 hover:text-white transition-all">Subscribe Monthly</a>
           </div>
 
           <div className="bg-indigo-600/5 border-2 border-indigo-500 rounded-[3rem] p-12 flex flex-col relative overflow-hidden shadow-premium">
-            <div className="absolute top-0 right-0 bg-indigo-500 text-[8px] font-black uppercase tracking-[0.3em] px-8 py-2 -rotate-45 translate-x-12 translate-y-6">Best Value</div>
-            <div className="flex justify-between items-start mb-8">
-              <div>
-                <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-4 block">Elite Architect</span>
-                <h3 className="text-5xl font-black uppercase italic mb-2">$97<span className="text-lg text-indigo-400/50 tracking-normal font-bold">/lifetime</span></h3>
-              </div>
-              <IconSparkles className="w-8 h-8 text-indigo-400" />
+            <div className="absolute top-0 right-0 bg-indigo-500 text-[8px] font-black uppercase tracking-[0.3em] px-8 py-2 -rotate-45 translate-x-12 translate-y-6">Elite Status</div>
+            <div className="flex justify-between mb-8">
+              <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest">Lifetime Access</span>
+              <span className="bg-indigo-500 text-white px-3 py-1 rounded-full text-[8px] font-black uppercase">Permanent</span>
             </div>
-            <p className="text-slate-400 text-sm font-medium mb-10 leading-relaxed italic">The ultimate professional protocol. One-time payment for eternal access to the evolving DNA of visual AI.</p>
-            <ul className="space-y-4 mb-10 border-y border-white/5 py-8">
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-200">
-                <span className="text-indigo-400">✓</span> Lifetime Terminal Updates
-              </li>
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-200">
-                <span className="text-indigo-400">✓</span> 4K Ultra Sampling Deconstruction
-              </li>
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-200">
-                <span className="text-indigo-400">✓</span> All Future Engines (Kling, Luma)
-              </li>
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-200">
-                <span className="text-indigo-400">✓</span> Priority Neural Processing
-              </li>
+            <h3 className="text-5xl font-black uppercase italic mb-8">$97<span className="text-lg text-indigo-400 opacity-50">/lifetime</span></h3>
+            <p className="text-slate-400 text-sm mb-10 leading-relaxed font-medium">The ultimate architect package. Buy once, own the terminal forever. No recurring fees.</p>
+            <ul className="space-y-4 mb-10 flex-grow">
+              <li className="flex items-center gap-2 text-xs font-bold text-slate-200 tracking-tight">✓ All Standard Features Forever</li>
+              <li className="flex items-center gap-2 text-xs font-bold text-slate-200 tracking-tight">✓ 4K Ultra Precision sampling Engine</li>
+              <li className="flex items-center gap-2 text-xs font-bold text-slate-200 tracking-tight">✓ Priority Cloud Deconstruction Queue</li>
+              <li className="flex items-center gap-2 text-xs font-bold text-slate-200 tracking-tight">✓ Exclusive Commercial License</li>
             </ul>
-            <a href={HOTMART_ELITE} className="block bg-indigo-600 text-white text-center py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all shadow-indigo-500/20 shadow-2xl">Secure Lifetime Access</a>
+            <a href={HOTMART_ELITE} className="block bg-indigo-600 text-white text-center py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all">Get Lifetime Access</a>
           </div>
         </div>
       </section>
 
-      {/* KNOWLEDGE BASE / BLOG LIST */}
+      {/* KB / BLOG LIST */}
       <section className="py-32 border-t border-white/5 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 space-y-4">
@@ -518,7 +403,9 @@ const App: React.FC = () => {
   );
 
   const renderPost = () => {
-    if (!activePost) return null;
+    // Se não houver post ativo, tentamos mostrar a home para evitar a tela branca
+    if (!activePost) return renderHome();
+    
     return (
       <div className="animate-in slide-in-from-bottom-10 duration-700 pt-32 pb-40">
         <div className="max-w-4xl mx-auto px-6">
@@ -558,7 +445,7 @@ const App: React.FC = () => {
     <div className="min-h-screen">
       <nav className="fixed top-0 w-full z-[150] glass border-b border-white/5 px-4 md:px-12 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <a href="#" className="flex items-center gap-2">
+          <a href="#" className="flex items-center gap-2" onClick={(e) => { e.preventDefault(); window.location.hash = ''; }}>
             <IconSparkles className="w-5 h-5 text-indigo-500" />
             <span className="font-black tracking-tighter text-lg uppercase italic">V-REVERSE <span className="text-indigo-500">PRO</span></span>
           </a>
@@ -580,15 +467,20 @@ const App: React.FC = () => {
         </div>
       </nav>
 
-      {view === 'home' ? renderHome() : renderPost()}
+      <main className="min-h-screen">
+        {view === 'home' ? renderHome() : renderPost()}
+      </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/5 py-16 text-center">
+      <footer className="border-t border-white/5 py-16 text-center bg-black/40">
         <IconSparkles className="w-6 h-6 text-indigo-600 mx-auto mb-6" />
         <span className="font-black text-xl uppercase italic block mb-10">V-REVERSE PRO</span>
-        <div className="flex justify-center gap-10 text-[9px] font-black uppercase tracking-widest text-slate-600">
-          <a href="#">Terms</a><a href="#">Privacy</a><a href="#">Support</a>
+        <div className="flex justify-center flex-wrap gap-10 text-[9px] font-black uppercase tracking-widest text-slate-600">
+          <a href="#" className="hover:text-indigo-400 transition-colors">Terms of Service</a>
+          <a href="#" className="hover:text-indigo-400 transition-colors">Privacy Policy</a>
+          <a href="#" className="hover:text-indigo-400 transition-colors">Contact Support</a>
         </div>
+        <p className="mt-12 text-[8px] text-slate-800 font-bold tracking-[0.2em] uppercase">© 2025 V-Reverse Architectural Systems. All rights reserved.</p>
       </footer>
 
       {/* LOGIN MODAL */}
@@ -596,11 +488,12 @@ const App: React.FC = () => {
         <div className="fixed inset-0 z-[300] flex items-center justify-center p-4 bg-black/95 backdrop-blur-3xl">
           <div className="w-full max-w-md p-10 bg-[#0f172a] border border-white/10 rounded-[3rem] text-center space-y-8 shadow-premium">
             <h2 className="text-3xl font-black uppercase tracking-tighter italic">Architect Portal</h2>
-            <input type="email" placeholder="email@architect.com" value={loginEmail} onChange={e => setLoginEmail(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-center font-bold outline-none focus:border-indigo-500 transition-all" />
-            <button onClick={() => validateSub(loginEmail)} disabled={loginLoading} className="w-full bg-indigo-600 py-4 rounded-xl font-black uppercase text-xs tracking-widest">
+            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Verify your license to unlock the terminal</p>
+            <input type="email" placeholder="email@architect.com" value={loginEmail} onChange={e => setLoginEmail(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-center font-bold outline-none focus:border-indigo-500 transition-all text-white" />
+            <button onClick={() => validateSub(loginEmail)} disabled={loginLoading} className="w-full bg-indigo-600 py-4 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-indigo-500 transition-colors disabled:opacity-50">
               {loginLoading ? 'Verifying...' : 'Unlock Terminal'}
             </button>
-            <button onClick={() => setShowLoginModal(false)} className="text-[10px] font-black uppercase opacity-30">Return</button>
+            <button onClick={() => setShowLoginModal(false)} className="text-[10px] font-black uppercase opacity-30 hover:opacity-100 transition-opacity">Return to terminal</button>
           </div>
         </div>
       )}
