@@ -17,6 +17,7 @@ const getSystemInstruction = (targetModel: string, config: WorkstationConfig) =>
   3. SOCIAL KIT: Viral titles, descriptions, hooks, and 10 hashtags.
   4. THUMBNAIL: High CTR image prompt.
   5. 5 VARIATIONS: Diverse cinematic styles (Sci-fi, Vintage, Cyberpunk, Documentary, Unreal Engine 5).
+  6. NEGATIVE PROMPT: Construct a robust negative prompt string. It MUST include terms to prevent low quality (blurry, grainy, low resolution, distorted, watermark, signature) and terms that deviate from the identified style (e.g., if the style is realistic, exclude "cartoon, anime, illustration, 3d render, cg, digital art"). Focus on ensuring temporal stability and visual clarity.
 
   MANDATORY: Return ONLY valid JSON. All output in English. No markdown backticks.
 `;
