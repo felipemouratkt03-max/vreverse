@@ -1,4 +1,3 @@
-
 export interface ViralVariation {
   type: string;
   title: string;
@@ -43,7 +42,8 @@ export interface WorkstationConfig {
 }
 
 export type InputData = 
-  | { type: 'file'; base64: string; mimeType: string };
+  | { type: 'file'; base64: string; mimeType: string }
+  | { type: 'url'; url: string };
 
 export const TARGET_MODELS = [
   { id: 'midjourney', name: 'Midjourney v6', icon: '🎨' },

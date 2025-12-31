@@ -1,0 +1,14 @@
+# V-Reverse Pro Configuration Blueprint
+project:
+  name: V-Reverse Pro
+  version: 6.5
+  engine: Gemini 3 Pro
+  features:
+    - visual_dna_extraction
+    - url_to_prompt
+    - search_grounding
+    - cinematic_deconstruction
+deployment:
+  target: Hostinger FTP
+  branch: main
+  auto_build: true

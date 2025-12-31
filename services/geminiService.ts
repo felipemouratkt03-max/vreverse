@@ -1,4 +1,3 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import { VideoPromptResult, InputData, WorkstationConfig } from "../types";
 
@@ -8,18 +7,18 @@ const getSystemInstruction = (targetModel: string, config: WorkstationConfig) =>
   
   CURRENT WORKSTATION CONFIG:
   - Target Engine: ${targetModel}
-  - Fidelity Temperature: ${config.fidelity}% (Higher means more literal extraction)
-  - Technical Detail: ${config.detailLevel}% (Higher means more camera/lens data)
+  - Fidelity: ${config.fidelity}%
+  - Detail: ${config.detailLevel}%
   - Style Profile: ${config.promptStyle}
 
-  STRICT GUIDELINES:
-  1. MASTER PROMPT: Technical blueprint (500+ words). Include specific camera settings (lenses, f-stop, shutter speed), lighting physics (refraction, raytracing tokens), and texture mapping.
-  2. DNA SUMMARY: Extract clear Subject, Style, and Environment.
-  3. SOCIAL KIT: Viral titles, descriptions, hooks, and 10 hashtags.
+  STRICT PROTOCOL:
+  1. MASTER PROMPT: Technical blueprint (500+ words). Include camera lenses (e.g. 35mm f/1.4), lighting (Kelvin, volumetric), and specific engine tokens.
+  2. DNA SUMMARY: Subject, Style, and Environment.
+  3. SOCIAL KIT: Viral titles, hooks, and hashtags.
   4. THUMBNAIL: High CTR image prompt.
-  5. 5 VARIATIONS: Diverse cinematic styles (Sci-fi, Vintage, Cyberpunk, Documentary, Unreal Engine 5).
+  5. 5 VARIATIONS: Different cinematic styles.
 
-  MANDATORY: Return ONLY valid JSON. All output in English. No markdown backticks.
+  MANDATORY: Return ONLY valid JSON. All output in English.
 `;
 
 export const analyzeContent = async (
@@ -77,13 +76,18 @@ export const analyzeContent = async (
         negativePrompt: { type: Type.STRING }
       },
       required: ["subjectDNA", "styleDNA", "environmentDNA", "fullMasterPrompt", "socialKit", "thumbnailBlueprint", "viralVariations", "negativePrompt"]
-    }
+    },
+    tools: input.type === 'url' ? [{ googleSearch: {} }] : []
   };
 
-  const parts: any[] = [
-    { text: `Reverse engineer this media for ${targetModel}. Fidelity: ${workstationConfig.fidelity}%. Detail: ${workstationConfig.detailLevel}%.` },
-    { inlineData: { data: input.base64, mimeType: input.mimeType } }
-  ];
+  const parts: any[] = [];
+  
+  if (input.type === 'file') {
+    parts.push({ text: `Deconstruct this media for ${targetModel}. Fidelity: ${workstationConfig.fidelity}%.` });
+    parts.push({ inlineData: { data: input.base64, mimeType: input.mimeType } });
+  } else {
+    parts.push({ text: `Analyze the visual DNA of this video link: ${input.url}. Target Engine: ${targetModel}.` });
+  }
 
   const response = await ai.models.generateContent({ 
     model: modelName, 
@@ -92,5 +96,16 @@ export const analyzeContent = async (
   });
   
   const text = response.text || "{}";
-  return JSON.parse(text.trim()) as VideoPromptResult;
+  const result = JSON.parse(text.trim()) as VideoPromptResult;
+
+  if (response.candidates?.[0]?.groundingMetadata?.groundingChunks) {
+    result.groundingSources = response.candidates[0].groundingMetadata.groundingChunks
+      .filter((chunk: any) => chunk.web)
+      .map((chunk: any) => ({
+        title: chunk.web.title,
+        uri: chunk.web.uri
+      }));
+  }
+
+  return result;
 };
