@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2"
 
@@ -13,11 +13,9 @@ serve(async (req: Request) => {
   }
 
   try {
-    // Usando nomes que NÃO começam com SUPABASE_ para evitar erro no CLI
-    // Fix: Access environment variables via process.env to resolve "Cannot find name 'Deno'" 
-    // and maintain consistency with project guidelines for environment variable access.
-    const DB_URL = process.env.APP_DB_URL ?? ""
-    const SERVICE_ROLE = process.env.APP_SERVICE_ROLE ?? ""
+    // No Supabase Edge Functions (Deno), usamos Deno.env.get para acessar segredos
+    const DB_URL = Deno.env.get("APP_DB_URL") ?? ""
+    const SERVICE_ROLE = Deno.env.get("APP_SERVICE_ROLE") ?? ""
 
     if (!DB_URL || !SERVICE_ROLE) {
       throw new Error("Configurações de ambiente (APP_DB_URL ou APP_SERVICE_ROLE) não encontradas.");
