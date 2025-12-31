@@ -218,6 +218,17 @@ const FAQ_ITEMS = [
   { q: "Can I use it for commercial work?", a: "Absolutely. You own 100% of the prompts and the resulting generations." }
 ];
 
+const FEATURES = [
+  { title: "Neural DNA Deconstruction", desc: "Surgical extraction of visual parameters using custom vision transformers." },
+  { title: "Cinematic Lens Emulation", desc: "Reverse-engineer focal lengths, apertures, and sensor dynamics." },
+  { title: "Lighting Physics Analysis", desc: "Detect Kelvin temperature, volumetric scattering, and global illumination." },
+  { title: "Multi-Engine Support", desc: "Native optimization for Midjourney, Sora, Runway, Kling, and Luma." },
+  { title: "Temporal Consistency", desc: "Track motion vectors and pacing across video sequences." },
+  { title: "Viral Social Kit", desc: "Auto-generated hooks, titles, and hashtags optimized for reach." },
+  { title: "4K Frame Sampling", desc: "High-resolution analysis for pixel-perfect detail extraction." },
+  { title: "Architect Portal Access", desc: "A private, high-performance terminal for professional creators." }
+];
+
 const App: React.FC = () => {
   const [lang, setLang] = useState('en');
   const [view, setView] = useState<'home' | 'post'>('home');
@@ -300,7 +311,7 @@ const App: React.FC = () => {
   const renderHome = () => (
     <div className="animate-in fade-in duration-700">
       {/* HERO */}
-      <section className="text-center mb-24 md:mb-40 pt-20 md:pt-40">
+      <section className="text-center mb-24 md:mb-40 pt-20 md:pt-40 px-4">
          <span className="inline-block bg-indigo-600/10 border border-indigo-500/20 px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.4em] text-indigo-400 mb-8">{t.heroTag}</span>
          <h1 className="hero-h1 text-4xl md:text-8xl font-black uppercase tracking-tighter italic leading-none mb-10 gradient-text">{t.heroH1}</h1>
          <p className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed max-w-3xl mx-auto mb-12 italic">{t.heroDesc}</p>
@@ -310,9 +321,26 @@ const App: React.FC = () => {
          </div>
       </section>
 
+      {/* CORE FEATURES GRID */}
+      <section className="py-24 border-t border-white/5 max-w-7xl mx-auto px-4">
+        <div className="text-center mb-20 space-y-4">
+          <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">System Intelligence</h2>
+          <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px]">Deconstructing the impossible</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {FEATURES.map((f, i) => (
+            <div key={i} className="p-8 bg-white/[0.02] border border-white/10 rounded-[2rem] hover:bg-indigo-600/[0.05] transition-all group">
+              <IconSparkles className="w-6 h-6 text-indigo-500 mb-6 group-hover:scale-110 transition-transform" />
+              <h3 className="text-[10px] font-black uppercase tracking-widest mb-3 text-indigo-400">{f.title}</h3>
+              <p className="text-slate-500 text-sm font-medium leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* WORKSTATION */}
-      <section id="workstation" className="mb-40 space-y-16">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
+      <section id="workstation" className="mb-40 space-y-16 px-4">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
           <div className="space-y-8">
             <div className="bg-white/[0.02] border border-white/10 p-8 rounded-[2.5rem] space-y-8">
               <h3 className="text-[10px] font-black uppercase tracking-widest text-indigo-400">Target Engine</h3>
@@ -329,11 +357,11 @@ const App: React.FC = () => {
                <h3 className="text-[10px] font-black uppercase tracking-widest text-indigo-400">Parameters</h3>
                <div className="space-y-6">
                   <div className="space-y-2">
-                    <div className="flex justify-between text-[9px] font-black uppercase text-slate-600"><span>Fidelity</span><span className="text-indigo-400">{config.fidelity}%</span></div>
+                    <div className="flex justify-between text-[9px] font-black uppercase text-slate-600"><span>Fidelity</span><span className="text-indigo-400">{config.fidelity} %</span></div>
                     <input type="range" min="0" max="100" value={config.fidelity} onChange={e => setConfig({...config, fidelity: parseInt(e.target.value)})} className="w-full accent-indigo-600" />
                   </div>
                   <div className="space-y-2">
-                    <div className="flex justify-between text-[9px] font-black uppercase text-slate-600"><span>Detail</span><span className="text-indigo-400">{config.detailLevel}%</span></div>
+                    <div className="flex justify-between text-[9px] font-black uppercase text-slate-600"><span>Detail</span><span className="text-indigo-400">{config.detailLevel} %</span></div>
                     <input type="range" min="0" max="100" value={config.detailLevel} onChange={e => setConfig({...config, detailLevel: parseInt(e.target.value)})} className="w-full accent-indigo-600" />
                   </div>
                </div>
@@ -366,8 +394,8 @@ const App: React.FC = () => {
       )}
 
       {status === AnalysisStatus.COMPLETED && result && (
-        <div className="space-y-12 animate-in fade-in slide-in-from-bottom-10 mb-40">
-           <div className="bg-white/[0.02] border border-white/10 p-10 md:p-16 rounded-[3rem] space-y-10 shadow-premium">
+        <div className="space-y-12 animate-in fade-in slide-in-from-bottom-10 mb-40 px-4">
+           <div className="bg-white/[0.02] border border-white/10 p-10 md:p-16 rounded-[3rem] space-y-10 shadow-premium max-w-7xl mx-auto">
               <div className="flex justify-between items-center border-b border-white/5 pb-8">
                 <h2 className="text-5xl font-black uppercase italic">Master DNA</h2>
                 <button onClick={() => { navigator.clipboard.writeText(result.fullMasterPrompt); alert("Copied!"); }} className="bg-indigo-600 px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest flex items-center gap-2">
@@ -382,21 +410,63 @@ const App: React.FC = () => {
       )}
 
       {/* PRICING */}
-      <section id="pricing" className="py-32 border-t border-white/5 space-y-16">
+      <section id="pricing" className="py-32 border-t border-white/5 space-y-16 bg-gradient-to-b from-transparent to-indigo-950/10">
         <div className="text-center space-y-3">
           <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter">License.</h2>
-          <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px]">Lifetime access to excellence</p>
+          <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px]">Join the top 0.1% of creators</p>
         </div>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-4">
           <div className="bg-white/[0.01] border border-white/10 rounded-[3rem] p-12 flex flex-col hover:border-indigo-500 transition-all">
-            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4">Standard</span>
-            <h3 className="text-5xl font-black uppercase italic mb-8">$29<span className="text-lg text-slate-600">/one-time</span></h3>
-            <a href={HOTMART_BASIC} className="block bg-white text-black text-center py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-600 hover:text-white transition-all">Buy Now</a>
+            <div className="flex justify-between items-start mb-8">
+              <div>
+                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4 block">Standard Plan</span>
+                <h3 className="text-5xl font-black uppercase italic mb-2">$29<span className="text-lg text-slate-600 tracking-normal font-bold">/monthly</span></h3>
+              </div>
+              <IconSparkles className="w-6 h-6 text-slate-700" />
+            </div>
+            <p className="text-slate-500 text-sm font-medium mb-10 leading-relaxed italic">Essential workstation access for rising architects. High-speed deconstruction and cinematic presets.</p>
+            <ul className="space-y-4 mb-10 border-y border-white/5 py-8">
+              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <span className="text-indigo-500">✓</span> Full Terminal Access
+              </li>
+              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <span className="text-indigo-500">✓</span> Midjourney & Sora Engines
+              </li>
+              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <span className="text-indigo-500">✓</span> Viral Social Media Kit
+              </li>
+              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400 opacity-30">
+                <span>×</span> 4K Ultra Sampling
+              </li>
+            </ul>
+            <a href={HOTMART_BASIC} className="block bg-white text-black text-center py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-600 hover:text-white transition-all shadow-xl">Subscribe Now</a>
           </div>
+
           <div className="bg-indigo-600/5 border-2 border-indigo-500 rounded-[3rem] p-12 flex flex-col relative overflow-hidden shadow-premium">
-            <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-4">Elite</span>
-            <h3 className="text-5xl font-black uppercase italic text-indigo-400 mb-8">$97<span className="text-lg text-slate-400 opacity-50">/one-time</span></h3>
-            <a href={HOTMART_ELITE} className="block bg-indigo-600 text-white text-center py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all">Buy Now</a>
+            <div className="absolute top-0 right-0 bg-indigo-500 text-[8px] font-black uppercase tracking-[0.3em] px-8 py-2 -rotate-45 translate-x-12 translate-y-6">Best Value</div>
+            <div className="flex justify-between items-start mb-8">
+              <div>
+                <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-4 block">Elite Architect</span>
+                <h3 className="text-5xl font-black uppercase italic mb-2">$97<span className="text-lg text-indigo-400/50 tracking-normal font-bold">/lifetime</span></h3>
+              </div>
+              <IconSparkles className="w-8 h-8 text-indigo-400" />
+            </div>
+            <p className="text-slate-400 text-sm font-medium mb-10 leading-relaxed italic">The ultimate professional protocol. One-time payment for eternal access to the evolving DNA of visual AI.</p>
+            <ul className="space-y-4 mb-10 border-y border-white/5 py-8">
+              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-200">
+                <span className="text-indigo-400">✓</span> Lifetime Terminal Updates
+              </li>
+              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-200">
+                <span className="text-indigo-400">✓</span> 4K Ultra Sampling Deconstruction
+              </li>
+              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-200">
+                <span className="text-indigo-400">✓</span> All Future Engines (Kling, Luma)
+              </li>
+              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-200">
+                <span className="text-indigo-400">✓</span> Priority Neural Processing
+              </li>
+            </ul>
+            <a href={HOTMART_ELITE} className="block bg-indigo-600 text-white text-center py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all shadow-indigo-500/20 shadow-2xl">Secure Lifetime Access</a>
           </div>
         </div>
       </section>
