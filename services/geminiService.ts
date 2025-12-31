@@ -1,3 +1,4 @@
+
 import { GoogleGenAI, Type } from "@google/genai";
 import { VideoPromptResult, InputData, WorkstationConfig } from "../types";
 
@@ -17,7 +18,6 @@ const getSystemInstruction = (targetModel: string, config: WorkstationConfig) =>
   3. SOCIAL KIT: Viral titles, descriptions, hooks, and 10 hashtags.
   4. THUMBNAIL: High CTR image prompt.
   5. 5 VARIATIONS: Diverse cinematic styles (Sci-fi, Vintage, Cyberpunk, Documentary, Unreal Engine 5).
-  6. NEGATIVE PROMPT: Construct a robust negative prompt string. It MUST include terms to prevent low quality (blurry, grainy, low resolution, distorted, watermark, signature) and terms that deviate from the identified style (e.g., if the style is realistic, exclude "cartoon, anime, illustration, 3d render, cg, digital art"). Focus on ensuring temporal stability and visual clarity.
 
   MANDATORY: Return ONLY valid JSON. All output in English. No markdown backticks.
 `;
@@ -77,18 +77,13 @@ export const analyzeContent = async (
         negativePrompt: { type: Type.STRING }
       },
       required: ["subjectDNA", "styleDNA", "environmentDNA", "fullMasterPrompt", "socialKit", "thumbnailBlueprint", "viralVariations", "negativePrompt"]
-    },
-    tools: input.type === 'url' ? [{ googleSearch: {} }] : []
+    }
   };
 
-  const parts: any[] = [];
-  
-  if (input.type === 'file') {
-    parts.push({ text: `Reverse engineer this media for ${targetModel}. Fidelity: ${workstationConfig.fidelity}%. Detail: ${workstationConfig.detailLevel}%.` });
-    parts.push({ inlineData: { data: input.base64, mimeType: input.mimeType } });
-  } else {
-    parts.push({ text: `Analyze the visual DNA of this video URL: ${input.url}. Target Engine: ${targetModel}. Use Google Search to find detailed context.` });
-  }
+  const parts: any[] = [
+    { text: `Reverse engineer this media for ${targetModel}. Fidelity: ${workstationConfig.fidelity}%. Detail: ${workstationConfig.detailLevel}%.` },
+    { inlineData: { data: input.base64, mimeType: input.mimeType } }
+  ];
 
   const response = await ai.models.generateContent({ 
     model: modelName, 
@@ -97,16 +92,5 @@ export const analyzeContent = async (
   });
   
   const text = response.text || "{}";
-  const result = JSON.parse(text.trim()) as VideoPromptResult;
-
-  if (response.candidates?.[0]?.groundingMetadata?.groundingChunks) {
-    result.groundingSources = response.candidates[0].groundingMetadata.groundingChunks
-      .filter((chunk: any) => chunk.web)
-      .map((chunk: any) => ({
-        title: chunk.web.title,
-        uri: chunk.web.uri
-      }));
-  }
-
-  return result;
+  return JSON.parse(text.trim()) as VideoPromptResult;
 };
