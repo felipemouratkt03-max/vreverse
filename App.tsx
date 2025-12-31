@@ -215,7 +215,12 @@ const FAQ_ITEMS = [
   { q: "Which models are supported?", a: "Midjourney v6.1, Sora, Runway Gen-3, Luma, and Kling AI." },
   { q: "How do I access my purchase?", a: "Instant access via the Architect Portal after Hotmart approval." },
   { q: "Is it mobile-friendly?", a: "Yes, optimized for high-performance use on any smartphone or tablet." },
-  { q: "Can I use it for commercial work?", a: "Absolutely. You own 100% of the prompts and the resulting generations." }
+  { q: "Can I use it for commercial work?", a: "Absolutely. You own 100% of the prompts and the resulting generations." },
+  { q: "What is the average processing speed?", a: "Our neural engine typically completes a full DNA deconstruction in less than 15 seconds, depending on frame complexity." },
+  { q: "Does it support 4K video files?", a: "Yes, the Architect Workstation can process ultra-high definition sources to extract the finest texture and grain data." },
+  { q: "What are 'Avoidance Protocols' (Negative Prompts)?", a: "V-Reverse automatically generates negative prompts to filter out common AI artifacts like blur, distortion, and anatomical errors." },
+  { q: "Can I batch process multiple videos?", a: "Elite Architect license holders have access to our batch processing terminal for scalable production pipelines." },
+  { q: "How often is the engine updated?", a: "We push neural updates weekly to ensure compatibility with the latest AI model versions (e.g., Midjourney v6.1 and Sora patches)." }
 ];
 
 const FEATURES = [
