@@ -7,18 +7,18 @@ const getSystemInstruction = (targetModel: string, config: WorkstationConfig) =>
   
   CURRENT WORKSTATION CONFIG:
   - Target Engine: ${targetModel}
-  - Fidelity: ${config.fidelity}%
-  - Detail: ${config.detailLevel}%
+  - Fidelity Temperature: ${config.fidelity}% (Higher means more literal extraction)
+  - Technical Detail: ${config.detailLevel}% (Higher means more camera/lens data)
   - Style Profile: ${config.promptStyle}
 
-  STRICT PROTOCOL:
-  1. MASTER PROMPT: Technical blueprint (500+ words). Include camera lenses (e.g. 35mm f/1.4), lighting (Kelvin, volumetric), and specific engine tokens.
-  2. DNA SUMMARY: Subject, Style, and Environment.
-  3. SOCIAL KIT: Viral titles, hooks, and hashtags.
+  STRICT GUIDELINES:
+  1. MASTER PROMPT: Technical blueprint (500+ words). Include specific camera settings (lenses, f-stop, shutter speed), lighting physics (refraction, raytracing tokens), and texture mapping.
+  2. DNA SUMMARY: Extract clear Subject, Style, and Environment.
+  3. SOCIAL KIT: Viral titles, descriptions, hooks, and 10 hashtags.
   4. THUMBNAIL: High CTR image prompt.
-  5. 5 VARIATIONS: Different cinematic styles.
+  5. 5 VARIATIONS: Diverse cinematic styles (Sci-fi, Vintage, Cyberpunk, Documentary, Unreal Engine 5).
 
-  MANDATORY: Return ONLY valid JSON. All output in English.
+  MANDATORY: Return ONLY valid JSON. All output in English. No markdown backticks.
 `;
 
 export const analyzeContent = async (
@@ -83,10 +83,10 @@ export const analyzeContent = async (
   const parts: any[] = [];
   
   if (input.type === 'file') {
-    parts.push({ text: `Deconstruct this media for ${targetModel}. Fidelity: ${workstationConfig.fidelity}%.` });
+    parts.push({ text: `Reverse engineer this media for ${targetModel}. Fidelity: ${workstationConfig.fidelity}%. Detail: ${workstationConfig.detailLevel}%.` });
     parts.push({ inlineData: { data: input.base64, mimeType: input.mimeType } });
   } else {
-    parts.push({ text: `Analyze the visual DNA of this video link: ${input.url}. Target Engine: ${targetModel}.` });
+    parts.push({ text: `Analyze the visual DNA of this video URL: ${input.url}. Target Engine: ${targetModel}. Use Google Search to find detailed context.` });
   }
 
   const response = await ai.models.generateContent({ 

@@ -3,6 +3,7 @@
   "description": "Reverse engineer video and image DNA into high-density AI prompts.",
   "requestFramePermissions": [
     "camera",
-    "microphone"
+    "microphone",
+    "geolocation"
   ]
 }
