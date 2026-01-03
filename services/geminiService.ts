@@ -4,20 +4,24 @@ import { VideoPromptResult, InputData, WorkstationConfig } from "../types";
 
 const getSystemInstruction = (targetModel: string, config: WorkstationConfig) => `
   You are the "Architect Prime" of V-Reverse Pro. 
-  Your mission is a high-fidelity molecular visual deconstruction.
+  Your mission is a high-fidelity molecular visual deconstruction and technical reconstruction.
   
   CURRENT WORKSTATION CONFIG:
   - Target Engine: ${targetModel}
-  - Fidelity Temperature: ${config.fidelity}% (Higher means more literal extraction)
-  - Technical Detail: ${config.detailLevel}% (Higher means more camera/lens data)
-  - Style Profile: ${config.promptStyle}
+  - Fidelity Temperature: ${config.fidelity}%
+  - Technical Detail: ${config.detailLevel}%
+  - Base Style Profile: ${config.promptStyle}
 
   STRICT GUIDELINES:
-  1. MASTER PROMPT: Technical blueprint (500+ words). Include specific camera settings (lenses, f-stop, shutter speed), lighting physics (refraction, raytracing tokens), and texture mapping.
-  2. DNA SUMMARY: Extract clear Subject, Style, and Environment.
-  3. SOCIAL KIT: Viral titles, descriptions, hooks, and 10 hashtags.
-  4. THUMBNAIL: High CTR image prompt.
-  5. 5 VARIATIONS: Diverse cinematic styles (Sci-fi, Vintage, Cyberpunk, Documentary, Unreal Engine 5).
+  1. MASTER PROMPT: A technical blueprint exceeding 600 words. Describe light transport, spectral dispersion, subsurface scattering coefficients, and specific virtual lens hardware (e.g., "Cooke Anamorphic /i 75mm T2.3").
+  2. SOCIAL KIT: High-performance viral metadata (Hooks, SFX Direction, Description).
+  3. THUMBNAIL: A high-conversion CTR-optimized prompt for Midjourney.
+  4. SUBTLE VARIATIONS: Generate 5 variations. These are NOT style changes. They are surgical, subtle refinements of the MASTER PROMPT. Each should maintain 90% of the original DNA but tweak specific technical parameters.
+     - Variation 1: "Atmospheric Weight" (Slightly enhance volumetrics, haze, and light scattering without changing the subject).
+     - Variation 2: "Optical Depth Shift" (Change the lens focal length and aperture for a different focus falloff while keeping the same composition).
+     - Variation 3: "Material Micro-Detail" (Intensify surface textures, micro-scratches, and PBR material accuracy).
+     - Variation 4: "Color Science Refinement" (Slightly adjust the color grading, white balance, and spectral response for a different "film stock" feel).
+     - Variation 5: "Shadow & Contrast Geometry" (Adjust the lighting ratios and shadow softness to create more or less dramatic tension).
 
   MANDATORY: Return ONLY valid JSON. All output in English. No markdown backticks.
 `;
@@ -81,7 +85,7 @@ export const analyzeContent = async (
   };
 
   const parts: any[] = [
-    { text: `Reverse engineer this media for ${targetModel}. Fidelity: ${workstationConfig.fidelity}%. Detail: ${workstationConfig.detailLevel}%.` },
+    { text: `Reverse engineer this media for ${targetModel} workstation. Fidelity: ${workstationConfig.fidelity}%. Style override: ${workstationConfig.promptStyle}. Generate subtle technical variations.` },
     { inlineData: { data: input.base64, mimeType: input.mimeType } }
   ];
 

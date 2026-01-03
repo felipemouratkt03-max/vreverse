@@ -3,12 +3,21 @@ import React, { useState, useRef, useEffect } from 'react';
 import { AnalysisStatus, VideoPromptResult, TARGET_MODELS, WorkstationConfig } from './types';
 import { analyzeContent } from './services/geminiService';
 import { 
-  IconUpload, IconSparkles, IconCopy, IconChevron
+  IconUpload, IconSparkles, IconCopy, IconChevron, IconRotate
 } from './components/Icons';
 import { checkSubscription } from './services/supabaseClient';
 
 const HOTMART_BASIC = "https://pay.hotmart.com/U103590267K?off=basic_plan";
 const HOTMART_ELITE = "https://pay.hotmart.com/U103590267K?off=elite_plan";
+
+const STYLE_OPTIONS = [
+  "Cinematic Hyper-Realism",
+  "Commercial Product Photography",
+  "National Geographic Documentary",
+  "Architectural CAD / Schematic",
+  "Hand-Painted Concept Art",
+  "Cybernetic Bio-Mechanical"
+];
 
 interface BlogPost {
   id: string;
@@ -23,30 +32,14 @@ interface BlogPost {
 }
 
 const LANGUAGES = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'pt', name: 'Português', flag: '🇧🇷' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  { code: 'jp', name: '日本語', flag: '🇯🇵' }
+  { code: 'en', name: 'English', flag: '🇺🇸' }
 ];
 
 const TRANSLATIONS: Record<string, any> = {
-  en: {
-    heroTag: "Architect Workstation v5.8",
-    heroH1: "extract prompt from video",
-    heroDesc: "The high-fidelity protocol to reverse-engineer visual DNA. One prompt can redefine your creative career and legacy.",
-    ctaPricing: "Secure License",
-    ctaWorkstation: "Open Terminal",
-    kbTitle: "Architect Knowledge Base",
-    kbDesc: "Technical insights on visual DNA extraction and high-end prompt engineering.",
-    back: "Back to Home",
-    buyNow: "Get Started Now",
-    loading: "Scanning Neural DNA..."
-  },
   pt: {
     heroTag: "Workstation Arquiteto v5.8",
-    heroH1: "extract prompt from video",
+    heroH1: "extrair prompt de vídeo",
     heroDesc: "O protocolo de alta fidelidade para engenharia reversa de DNA visual. Um prompt pode redefinir sua carreira e legado.",
     ctaPricing: "Garantir Licença",
     ctaWorkstation: "Abrir Terminal",
@@ -54,194 +47,188 @@ const TRANSLATIONS: Record<string, any> = {
     kbDesc: "Insights técnicos sobre extração de DNA visual e engenharia de prompt de elite.",
     back: "Voltar ao Início",
     buyNow: "Começar Agora",
-    loading: "Escaneando DNA Neural..."
+    loading: "Escaneando DNA Neural...",
+    systemIntel: "Inteligência do Sistema",
+    systemIntelDesc: "Desconstruindo o impossível",
+    terminalLocked: "Terminal Bloqueado",
+    getAccess: "Obter Acesso",
+    uploadFile: "Enviar Arquivo",
+    masterDNA: "DNA Mestre",
+    copy: "Copiar",
+    copied: "Copiado!",
+    portal: "Portal",
+    portalTitle: "Portal do Arquiteto",
+    verifying: "Verificando...",
+    unlockTerminal: "Desbloquear Terminal",
+    return: "Voltar",
+    standardPlan: "Plano Mensal",
+    monthly: "/mês",
+    lifetime: "/vitalício",
+    bestValue: "Melhor Valor",
+    subscribeNow: "Assinar Agora",
+    secureAccess: "Garantir Acesso",
+    dashboardTitle: "Workstation V-Reverse Pro",
+    dashboardSubtitle: "Terminal de extração de DNA de alta fidelidade",
+    socialKitTitle: "Kit Social Viral",
+    variationsTitle: "Variações Técnicas Robustas",
+    thumbnailTitle: "Blueprint de Thumbnail",
+    negativePromptTitle: "DNA Negativo (Filtros)",
+    newAnalysis: "Nova Análise",
+    stylePrompt: "Estilo do Prompt",
+    readyToArchitect: "Pronto para arquitetar seu sucesso?",
+    dontLetViral: "Não deixe outra sequência de DNA viral escapar das suas mãos.",
+    subNotFound: "Assinatura não encontrada.",
+    extractFailed: "Falha na extração. Complexidade do frame excedida.",
+    targetEngine: "Motor de Destino",
+    parameters: "Parâmetros Técnicos",
+    fidelity: "Fidelidade",
+    licenseTitle: "Licenciamento de Acesso"
   }
 };
 
 const POSTS: BlogPost[] = [
   {
     id: "p1",
-    slug: "extract-prompt-from-video",
+    slug: "extract-prompt-from-video-protocolo-mestre",
     keyword: "extract prompt from video",
-    title: "Master Protocol: How to Extract Prompt from Video in 2025",
-    seoTitle: "Extract Prompt from Video - High-Fidelity AI Vision Protocol",
-    metaDesc: "The definitive professional guide to extract prompt from video. Learn the cinematic deconstruction method for Midjourney, Sora, and Runway Gen-3.",
-    category: "Technical",
-    readTime: "25 min",
+    title: "Protocolo Mestre: Como extrair prompt de vídeo em 2025",
+    seoTitle: "Extrair Prompt de Vídeo - Guia Técnico de Alta Fidelidade",
+    metaDesc: "O guia definitivo para extrair prompt de vídeo. Domine a desconstrução técnica para Midjourney e Sora com fluxos de alta densidade.",
+    category: "Técnico",
+    readTime: "60 min",
     content: `
-      <p>In the high-stakes world of generative AI, the ability to <strong>extract prompt from video</strong> is the ultimate "cheat code" for creators who refuse to settle for generic outputs. As we enter 2025, the market is saturated with "good" AI videos, but truly exceptional content requires a technical DNA that can only be found by deconstructing existing cinematic masterpieces.</p>
-      
-      <h2>The Core Philosophy of Extraction</h2>
-      <p>When you choose to <strong>extract prompt from video</strong>, you are performing a surgical operation on a visual frame. You aren't just looking for "a man in a suit." You are looking for the exact light diffraction on the fabric, the lens focal length (e.g., 35mm f/1.4), and the volumetric scattering of the atmosphere. To <strong>extract prompt from video</strong> is to understand the math behind the beauty.</p>
-      
-      <div class="code-block">
-        // V-REVERSE PROTOCOL v5.8
-        PROTOCOL_INIT {
-          SAMPLING_RATE: 4K_UHD;
-          NEURAL_DECODER: VISION_TRANSFORMER_V4;
-          FEATURE_EXTRACTION: [LIGHT_VECTORS, TEXTURE_DNA, LENS_PHYSICS];
-          OUTPUT_FORMAT: MASTER_PROMPT_TECHNICAL;
-        }
-      </div>
-
-      <h2>Phase 1: Cinematic Deconstruction</h2>
-      <p>The first step to <strong>extract prompt from video</strong> is identifying the 'Prime Frame'. Our engine scans the entire video sequence to find the frame with the highest semantic density. This is where the lighting is most complex and the texture detail is most pronounced. By focusing our energy here, we <strong>extract prompt from video</strong> data that carries the soul of the entire scene.</p>
-      
-      <h3>1. Lighting Physics (Kelvin & Lumens)</h3>
-      <p>To <strong>extract prompt from video</strong> successfully, the engine must calculate the light temperature. Is it 3200K (Tungsten) or 5600K (Daylight)? We use AI to measure the Kelvin temperature and convert it into specific tokens like "Golden Hour rim lighting" or "Blue hour cinematic mood".</p>
-      
-      <h3>2. Camera & Lens DNA</h3>
-      <p>Professional cinematographers use specific lenses for a reason. When you <strong>extract prompt from video</strong> with V-Reverse Pro, we identify the shallow depth of field (bokeh) and translate it into "shot on 85mm f/1.2 lens". This level of technical specificity is why our users' results look like real movies, not AI hallucinations.</p>
-      <p>Technical depth in visual extraction requires understanding subsurface scattering and global illumination. Every photon counts when you <strong>extract prompt from video</strong>.</p>
+      <p>No cenário de alta competitividade da IA generativa, a capacidade de <strong>extract prompt from video</strong> evoluiu de uma conveniência para um requisito técnico essencial. Para criadores de elite, não basta descrever o que veem; é necessário mapear os pesos neurais que geraram a imagem original.</p>
+      <h2>A Ciência por trás da Extração de DNA Visual</h2>
+      <p>Quando você decide <strong>extract prompt from video</strong>, você está realizando uma cirurgia reversa. O V-Reverse Pro analisa a temperatura Kelvin da luz, a dispersão espectral e os coeficientes de espalhamento subsuperficial (subsurface scattering). Isso permite que você consiga <strong>extract prompt from video</strong> com uma precisão que ferramentas comuns de "image-to-text" jamais alcançariam.</p>
+      <div class="code-block">// PROTOCOLO V-REVERSE v5.8\nLAYER_ANALYSIS: [OPTICS, VOLUMETRICS, MATERIALS, PHYSICS]\nRESOLUTION_SAMPLING: 4K_RAW</div>
+      <p>Para <strong>extract prompt from video</strong> de forma eficaz, nosso motor identifica o hardware virtual utilizado: lentes anamórficas, sensores de 35mm e configurações de obturador. Cada um desses elementos é convertido em tokens matemáticos que o Midjourney ou Sora conseguem interpretar perfeitamente.</p>
+      <p>A profundidade deste processo garante que, ao <strong>extract prompt from video</strong>, você capture não apenas o "assunto", mas a "alma" visual da obra de referência, permitindo replicação infinita com variações consistentes.</p>
     `
   },
   {
     id: "p2",
-    slug: "ai-image-prompt-generator",
-    keyword: "ai image prompt generator",
-    title: "The Ultimate AI Image Prompt Generator for Professionals",
-    seoTitle: "AI Image Prompt Generator - Convert Images to Professional Prompts",
-    metaDesc: "Discover the most advanced ai image prompt generator. Convert any image or video frame into a high-density AI prompt for elite results.",
-    category: "AI Tools",
-    readTime: "20 min",
+    slug: "engenharia-reversa-midjourney-v6",
+    keyword: "extrair prompt midjourney",
+    title: "Engenharia Reversa para Midjourney v6.1",
+    seoTitle: "Como Extrair Prompts para Midjourney v6.1 | V-Reverse Pro",
+    metaDesc: "Descubra como extrair a essência visual de qualquer vídeo para usar no Midjourney com fidelidade absoluta.",
+    category: "Tutorial",
+    readTime: "45 min",
     content: `
-      <h2>Why V-Reverse is the Best AI Image Prompt Generator</h2>
-      <p>An <strong>ai image prompt generator</strong> should not be a "black box" that gives you random words. It must be a precision instrument. Our <strong>ai image prompt generator</strong> is built on the premise of "Reverse Latent Mapping". This means we look at the pixel arrangement and predict what the original prompt *should* have been to generate that specific look.</p>
-      
-      <h2>Precision at Scale</h2>
-      <p>Using a professional <strong>ai image prompt generator</strong> allows studios to maintain visual consistency across thousands of assets. If you have a specific artistic style for a project, you can't rely on humans to manually prompt every time. You need an <strong>ai image prompt generator</strong> that can "see" the style and replicate it mathematically.</p>
-      
-      <div class="code-block">
-        [GENERATOR OUTPUT EXAMPLE]
-        "Cinematic wide shot, brutalist architecture, raw concrete texture, overcast moody lighting, shot on ARRI Alexa, 35mm lens --ar 16:9 --v 6.1"
-      </div>
-      <p>This <strong>ai image prompt generator</strong> output ensures that every frame generated follows the same DNA. Architecture, fashion, and product design all benefit from the surgical precision of an <strong>ai image prompt generator</strong> like V-Reverse.</p>
+      <p>O Midjourney v6.1 introduziu uma nova camada de compreensão estética. Para aproveitar isso, você precisa <strong>extract prompt from video</strong> focando em tokens de iluminação PBR. O segredo está em identificar como a luz global (Global Illumination) interage com os materiais.</p>
+      <p>Ao <strong>extract prompt from video</strong>, nossa ferramenta busca por palavras-chave como "ray-traced reflections" e "ambient occlusion". Esses detalhes são o que diferencia uma imagem gerada por amadores de uma obra de arte profissional.</p>
     `
   },
   {
     id: "p3",
-    slug: "image-prompt-generator",
-    keyword: "image prompt generator",
-    title: "Image Prompt Generator: Revolutionizing Visual Design",
-    seoTitle: "Image Prompt Generator - Advanced Technical Extraction",
-    metaDesc: "The industry standard image prompt generator for high-end cinematic production and architectural visualization.",
-    category: "Design",
-    readTime: "18 min",
+    slug: "sora-consistencia-temporal",
+    keyword: "prompts para sora",
+    title: "Sora: Dominando a Consistência Temporal",
+    seoTitle: "Extração de Prompts para Sora - Vídeos IA de Alta Fidelidade",
+    metaDesc: "Aprenda a extrair vetores de movimento e física de vídeos reais para usar no OpenAI Sora.",
+    category: "Futuro",
+    readTime: "50 min",
     content: `
-      <h2>Workflow Optimization with an Image Prompt Generator</h2>
-      <p>Every professional designer needs a reliable <strong>image prompt generator</strong> in their toolkit. Why? Because the gap between vision and execution is usually filled with failed prompts. An <strong>image prompt generator</strong> closes that gap by analyzing existing references.</p>
-      <p>When you use an <strong>image prompt generator</strong>, you are training your own creative eye to see patterns in lighting and composition. It’s an educational tool as much as a production one. A high-quality <strong>image prompt generator</strong> will identify the contrast ratios and color palettes that make a specific style work.</p>
+      <p>O Sora exige mais do que apenas descrições estáticas. Para <strong>extract prompt from video</strong> para este modelo, é vital capturar a dinâmica do movimento. Nossa Workstation rastreia vetores de movimento e a física de colisões presente no frame.</p>
+      <p>Quando você consegue <strong>extract prompt from video</strong> com foco em física, o resultado no Sora é um vídeo que respeita a gravidade e a inércia, eliminando as famosas "alucinações" de IA que estragam produções profissionais.</p>
     `
   },
   {
     id: "p4",
-    slug: "image-to-prompt-generator",
-    keyword: "image to prompt generator",
-    title: "Technical Breakdown: Image to Prompt Generator Algorithms",
-    seoTitle: "Image to Prompt Generator - How the Neural DNA is Decoded",
-    metaDesc: "Deep dive into the neural networks behind our image to prompt generator. Learn how pixels become technical tokens.",
-    category: "Engineering",
-    readTime: "22 min",
+    slug: "fisica-da-iluminacao-cinematografica",
+    keyword: "iluminação cinematográfica ia",
+    title: "Física da Iluminação: Do Real ao Latente",
+    seoTitle: "Iluminação Cinematográfica em Prompts de IA | Guia Técnico",
+    metaDesc: "Como mapear luz volumétrica e sombras complexas em prompts de inteligência artificial.",
+    category: "Física",
+    readTime: "40 min",
     content: `
-      <h2>Inside the Image to Prompt Generator</h2>
-      <p>How does an <strong>image to prompt generator</strong> actually work? It uses a combination of Vision Transformers (ViT) and Large Language Models (LLM). The <strong>image to prompt generator</strong> segments the image into semantic blocks: background, middle ground, and foreground.</p>
-      <p>Each block is then analyzed for its "Technical DNA". The <strong>image to prompt generator</strong> looks for lens flares, grain patterns, and specular highlights. This data is then reconstructed into a string of tokens that modern AI models like Midjourney and Sora can understand perfectly. This is the science of the <strong>image to prompt generator</strong>.</p>
+      <p>A luz define o humor. Ao <strong>extract prompt from video</strong>, o V-Reverse Pro identifica se a iluminação é 'High-Key' ou 'Low-Key', a posição das fontes de luz e o uso de difusores. Isso é crucial para quem deseja manter a consistência de marca.</p>
+      <p>Ao <strong>extract prompt from video</strong>, traduzimos o 'God Rays' para 'Volumetric Tyndall Scattering', garantindo que a IA entenda exatamente como as partículas de poeira devem interagir com os raios de sol no seu cenário virtual.</p>
     `
   },
   {
     id: "p5",
-    slug: "ai-image-prompt-generator-import",
-    keyword: "ai image prompt generator import",
-    title: "Studio Integration: AI Image Prompt Generator Import Methods",
-    seoTitle: "AI Image Prompt Generator Import - Scalable Studio Workflows",
-    metaDesc: "Learn how to integrate our ai image prompt generator import feature into your professional production pipeline.",
-    category: "Workflow",
-    readTime: "15 min",
+    slug: "optica-virtual-e-lentes",
+    keyword: "lentes para prompts ia",
+    title: "Óptica Virtual: A Alma de Cada Lente",
+    seoTitle: "Simulação de Lentes Reais em Prompts de IA | V-Reverse",
+    metaDesc: "Identifique milimetragens e aberturas de lentes reais para aplicar em suas gerações de IA.",
+    category: "Óptica",
+    readTime: "55 min",
     content: `
-      <h2>The Import Protocol</h2>
-      <p>For large agencies, manual operation is impossible. You need an <strong>ai image prompt generator import</strong> system. Our workstation supports batch processing via the <strong>ai image prompt generator import</strong> protocol, allowing you to feed hundreds of references at once.</p>
-      <p>By standardizing the <strong>ai image prompt generator import</strong>, your team can maintain a unified "Look Book" that is machine-readable. This level of <strong>ai image prompt generator import</strong> sophistication is what separates amateur setups from professional AI studios.</p>
+      <p>Uma lens de 14mm conta uma história diferente de uma de 85mm. Ao <strong>extract prompt from video</strong>, detectamos a distorção de barril e o campo de visão. Se o vídeo original foi gravado com uma lente anamórfica, nós capturamos o 'squeeze factor' para o prompt.</p>
+      <p>Saber <strong>extract prompt from video</strong> com foco em óptica permite que você crie imagens com o 'bokeh' perfeito, replicando lentes lendárias como a Leica Noctilux ou a Zeiss Master Prime.</p>
     `
   },
   {
     id: "p6",
-    slug: "ai-image-generator-prompt-offline",
-    keyword: "ai image generator prompt offline",
-    title: "Secure Privacy: AI Image Generator Prompt Offline Standards",
-    seoTitle: "AI Image Generator Prompt Offline - Enterprise Privacy Protocol",
-    metaDesc: "Keep your visual IP secure with our ai image generator prompt offline standard for high-profile client work.",
-    category: "Security",
-    readTime: "19 min",
+    slug: "dna-negativo-a-importancia-da-exclusao",
+    keyword: "negative prompt engineering",
+    title: "DNA Negativo: O Poder da Exclusão",
+    seoTitle: "Como Criar Prompts Negativos Eficientes via Extração de DNA",
+    metaDesc: "Por que o prompt negativo é 50% do seu resultado final em gerações de alta qualidade.",
+    category: "Engenharia",
+    readTime: "30 min",
     content: `
-      <h2>Maximum Security Extraction</h2>
-      <p>Corporate clients demand privacy. The <strong>ai image generator prompt offline</strong> standard ensures that your reference images never touch a public server during the initial analysis phase. Even without a constant cloud connection, our <strong>ai image generator prompt offline</strong> logic can process the frame deconstruction.</p>
-      <p>This <strong>ai image generator prompt offline</strong> capability is critical for secret film projects or pre-release product designs. Security is the foundation of the <strong>ai image generator prompt offline</strong> philosophy in V-Reverse Pro.</p>
+      <p>Muitas vezes, o que você *não* quer é mais importante. Ao <strong>extract prompt from video</strong>, o V-Reverse Pro gera automaticamente uma camada de 'DNA Negativo'. Isso bloqueia artefatos comuns como aberração cromática indesejada ou texturas plásticas.</p>
+      <p>Aprenda a <strong>extract prompt from video</strong> para identificar ruído de sensor e filtrá-lo, resultando em gerações limpas e prontas para uso comercial em grandes telas.</p>
     `
   },
   {
     id: "p7",
-    slug: "video-to-prompt",
-    keyword: "video to prompt",
-    title: "Temporal Consistency: The Video to Prompt Era",
-    seoTitle: "Video to Prompt - Mastering Motion and Pacing in AI",
-    metaDesc: "Convert any video clip into a structured AI prompt. The master guide to video to prompt conversion.",
-    category: "Motion",
-    readTime: "24 min",
+    slug: "kit-social-viral-automacao",
+    keyword: "metadados virais ia",
+    title: "Dominando Redes Sociais com Kits Virais",
+    seoTitle: "Automação de Conteúdo Viral: Do Prompt ao Post",
+    metaDesc: "Como gerar ganchos (hooks) e legendas magnéticas através da extração de DNA de vídeo.",
+    category: "Marketing",
+    readTime: "35 min",
     content: `
-      <h2>Beyond Frames: Video to Prompt</h2>
-      <p>Moving from static images to <strong>video to prompt</strong> requires analyzing the temporal dimension. How does the camera move? What is the frame rate? The <strong>video to prompt</strong> process captures the rhythm of the editing and the speed of the motion.</p>
-      <p>When you perform a <strong>video to prompt</strong> extraction, you are essentially creating a storyboard that includes timing directives. This is the future of cinematic AI: <strong>video to prompt</strong> deconstruction for high-end motion models.</p>
+      <p>O algoritmo das redes sociais é movido por retenção. Ao <strong>extract prompt from video</strong>, nossa IA analisa o 'ritmo' visual e sugere ganchos de abertura que prendem o espectador nos primeiros 3 segundos.</p>
+      <p>Ao <strong>extract prompt from video</strong>, você recebe não apenas o comando de imagem, mas toda a estratégia de publicação: títulos, descrições ricas em SEO e hashtags que realmente funcionam em 2025.</p>
     `
   },
   {
     id: "p8",
-    slug: "video-to-prompt-generator",
-    keyword: "video to prompt generator",
-    title: "Pro Workstation: The Ultimate Video to Prompt Generator",
-    seoTitle: "Video to Prompt Generator - High Performance DNA Extraction",
-    metaDesc: "The technical specs and workflow for the world's most advanced video to prompt generator workstation.",
-    category: "Workstation",
-    readTime: "26 min",
+    slug: "roi-da-engenharia-de-prompt",
+    keyword: "roi prompt engineering",
+    title: "O ROI da Engenharia de Prompt de Alta Densidade",
+    seoTitle: "Valor de Negócio na Extração de Prompts IA | V-Reverse",
+    metaDesc: "Entenda como a precisão na extração de prompts economiza milhares de dólares em produção.",
+    category: "Negócios",
+    readTime: "40 min",
     content: `
-      <h2>The Architect's Terminal</h2>
-      <p>Our <strong>video to prompt generator</strong> is the heart of the V-Reverse system. It’s designed for high-throughput analysis. Every pixel in the 4K stream is a data point for the <strong>video to prompt generator</strong>.</p>
-      <p>Whether you're recreating a dream sequence or a high-speed car chase, the <strong>video to prompt generator</strong> provides the exact parameters to replicate the intensity. This is the professional standard for a <strong>video to prompt generator</strong> in 2025.</p>
+      <p>Tempo é o recurso mais caro. Profissionais decidem <strong>extract prompt from video</strong> porque isso elimina o 'tentativa e erro'. Em vez de queimar créditos e horas testando variações aleatórias, você usa um blueprint cirúrgico.</p>
+      <p>Investir em uma licença para <strong>extract prompt from video</strong> com o V-Reverse Pro se paga no primeiro projeto comercial, onde a consistência e a velocidade são os diferenciais que garantem a satisfação do cliente final.</p>
     `
   }
 ];
 
 const FAQ_ITEMS = [
-  { q: "How accurate is the DNA extraction?", a: "With 95% fidelity settings, our engine extracts camera focal lengths, lighting vectors, and specific material textures with professional-grade precision." },
-  { q: "Which models are supported?", a: "Midjourney v6.1, Sora, Runway Gen-3, Luma, and Kling AI." },
-  { q: "How do I access my purchase?", a: "Instant access via the Architect Portal after Hotmart approval." },
-  { q: "Is it mobile-friendly?", a: "Yes, optimized for high-performance use on any smartphone or tablet." },
-  { q: "Can I use it for commercial work?", a: "Absolutely. You own 100% of the prompts and the resulting generations." },
-  { q: "What is the average processing speed?", a: "Our neural engine typically completes a full DNA deconstruction in less than 15 seconds, depending on frame complexity." },
-  { q: "Does it support 4K video files?", a: "Yes, the Architect Workstation can process ultra-high definition sources to extract the finest texture and grain data." },
-  { q: "What are 'Avoidance Protocols' (Negative Prompts)?", a: "V-Reverse automatically generates negative prompts to filter out common AI artifacts like blur, distortion, and anatomical errors." },
-  { q: "Can I batch process multiple videos?", a: "Elite Architect license holders have access to our batch processing terminal for scalable production pipelines." },
-  { q: "How often is the engine updated?", a: "We push neural updates weekly to ensure compatibility with the latest AI model versions (e.g., Midjourney v6.1 and Sora patches)." }
+  { q: "Qual a precisão da extração de DNA?", a: "Nossa tecnologia opera com 95% de fidelidade, identificando parâmetros como milimetragem de lentes, temperatura Kelvin de luz e tipos específicos de materiais PBR." },
+  { q: "Quais modelos de IA são suportados?", a: "Midjourney v6.1, OpenAI Sora, Runway Gen-3, Luma Dream Machine, Kling AI e Google Veo." },
+  { q: "Como recebo meu acesso após a compra?", a: "O acesso é imediato via Portal do Arquiteto após a aprovação da Hotmart. Você receberá as instruções no seu e-mail de compra." },
+  { q: "Posso extrair de URLs do YouTube ou Instagram?", a: "Sim, assinantes do Plano Elite podem colar URLs diretamente para processamento neural (sujeito aos termos de serviço das plataformas)." },
+  { q: "O pagamento é único ou assinatura?", a: "Oferecemos o Plano Mensal Standard para uso recorrente e o Plano Vitalício Elite para acesso permanente com todos os futuros updates inclusos." }
 ];
 
+// Added missing FEATURES constant to fix the reference error on line 451
 const FEATURES = [
-  { title: "Neural DNA Deconstruction", desc: "Surgical extraction of visual parameters using custom vision transformers." },
-  { title: "Cinematic Lens Emulation", desc: "Reverse-engineer focal lengths, apertures, and sensor dynamics." },
-  { title: "Lighting Physics Analysis", desc: "Detect Kelvin temperature, volumetric scattering, and global illumination." },
-  { title: "Multi-Engine Support", desc: "Native optimization for Midjourney, Sora, Runway, Kling, and Luma." },
-  { title: "Temporal Consistency", desc: "Track motion vectors and pacing across video sequences." },
-  { title: "Viral Social Kit", desc: "Auto-generated hooks, titles, and hashtags optimized for reach." },
-  { title: "4K Frame Sampling", desc: "High-resolution analysis for pixel-perfect detail extraction." },
-  { title: "Architect Portal Access", desc: "A private, high-performance terminal for professional creators." }
+  { title: "Engenharia Óptica", desc: "Mapeamento preciso de lentes, sensores e abertura para recriação física." },
+  { title: "DNA Materiais", desc: "Desconstrução de texturas PBR, coeficientes de reflexo e dispersão." },
+  { title: "Dinâmica Neural", desc: "Captura de vetores de movimento e física de colisão para modelos de vídeo." },
+  { title: "Sinergia de Modelos", desc: "Suporte nativo para Midjourney, Sora, Runway, Kling e mais." }
 ];
 
 const App: React.FC = () => {
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState('pt');
   const [view, setView] = useState<'home' | 'post'>('home');
   const [activePost, setActivePost] = useState<BlogPost | null>(null);
   
   const [status, setStatus] = useState<AnalysisStatus>(AnalysisStatus.IDLE);
   const [result, setResult] = useState<VideoPromptResult | null>(null);
-  const [targetModel, setTargetModel] = useState('sora');
+  const [targetModel, setTargetModel] = useState('midjourney');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   
   const [config, setConfig] = useState<WorkstationConfig>({
@@ -256,27 +243,20 @@ const App: React.FC = () => {
   const [loginLoading, setLoginLoading] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
+  const t = TRANSLATIONS[lang] || TRANSLATIONS.pt;
 
-  // HANDLE ROUTING VIA HASH
   useEffect(() => {
+    const savedEmail = localStorage.getItem('v-reverse-email');
+    if (savedEmail) validateSub(savedEmail);
+    
     const handleHash = () => {
       const hash = window.location.hash.replace('#', '');
       const post = POSTS.find(p => p.slug === hash);
-      if (post) {
-        setActivePost(post);
-        setView('post');
-        document.title = `${post.seoTitle} | V-Reverse Pro`;
-        window.scrollTo(0, 0);
-      } else {
-        setView('home');
-        setActivePost(null);
-        document.title = "Extract Prompt from Video | V-Reverse Pro Workstation";
-      }
+      if (post) { setActivePost(post); setView('post'); window.scrollTo(0, 0); } 
+      else { setView('home'); setActivePost(null); }
     };
-
     window.addEventListener('hashchange', handleHash);
-    handleHash(); // Run on mount
+    handleHash();
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
 
@@ -287,8 +267,8 @@ const App: React.FC = () => {
       setIsSubscriber(true);
       localStorage.setItem('v-reverse-email', email);
       setShowLoginModal(false);
-    } else {
-      alert(lang === 'pt' ? "Assinatura não encontrada." : "Subscription not found.");
+    } else if (loginEmail) {
+      alert(t.subNotFound);
     }
     setLoginLoading(false);
   };
@@ -296,8 +276,8 @@ const App: React.FC = () => {
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file || !isSubscriber) return;
-
     setStatus(AnalysisStatus.ANALYZING);
+    setResult(null);
     const reader = new FileReader();
     reader.onload = async () => {
       try {
@@ -307,30 +287,177 @@ const App: React.FC = () => {
         setStatus(AnalysisStatus.COMPLETED);
       } catch (err) {
         setStatus(AnalysisStatus.IDLE);
-        alert("Extraction failed. Frame complexity exceeded.");
+        alert(t.extractFailed);
       }
     };
     reader.readAsDataURL(file);
   };
 
-  const renderHome = () => (
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    alert(t.copied);
+  };
+
+  const renderDashboard = () => (
+    <div className="pt-32 px-4 pb-40 max-w-7xl mx-auto space-y-16 animate-in fade-in duration-700">
+      <header className="text-center space-y-4">
+        <h1 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter gradient-text">{t.dashboardTitle}</h1>
+        <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px]">{t.dashboardSubtitle}</p>
+      </header>
+
+      <div className="grid lg:grid-cols-2 gap-8">
+        <div className="space-y-6">
+          <div className="bg-white/[0.02] border border-white/10 p-8 rounded-[2rem] space-y-6">
+            <h3 className="text-[10px] font-black uppercase tracking-widest text-indigo-400">{t.targetEngine}</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+              {TARGET_MODELS.map(m => (
+                <button key={m.id} onClick={() => setTargetModel(m.id)} className={`flex items-center gap-2 p-3 rounded-lg border transition-all ${targetModel === m.id ? 'bg-indigo-600 border-indigo-400 shadow-lg' : 'bg-white/5 border-white/10 opacity-50'}`}>
+                  <span className="text-xl">{m.icon}</span>
+                  <span className="text-[9px] font-black uppercase tracking-widest">{m.name}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+          
+          <div className="bg-white/[0.02] border border-white/10 p-8 rounded-[2rem] space-y-6">
+             <h3 className="text-[10px] font-black uppercase tracking-widest text-indigo-400">{t.parameters}</h3>
+             <div className="space-y-4">
+                <div className="space-y-1">
+                  <div className="flex justify-between text-[9px] font-black uppercase text-slate-600"><span>{t.fidelity}</span><span className="text-indigo-400">{config.fidelity}%</span></div>
+                  <input type="range" min="0" max="100" value={config.fidelity} onChange={e => setConfig({...config, fidelity: parseInt(e.target.value)})} className="w-full accent-indigo-600" />
+                </div>
+                <div className="space-y-2">
+                  <span className="text-[9px] font-black uppercase text-slate-600 tracking-widest">{t.stylePrompt}</span>
+                  <select value={config.promptStyle} onChange={e => setConfig({...config, promptStyle: e.target.value})} className="w-full bg-white/5 border border-white/10 p-3 rounded-lg text-xs font-bold outline-none focus:border-indigo-500 transition-colors">
+                    {STYLE_OPTIONS.map(opt => <option key={opt} value={opt} className="bg-[#0f172a]">{opt}</option>)}
+                  </select>
+                </div>
+             </div>
+          </div>
+        </div>
+
+        <div className="bg-white/[0.02] border border-white/10 p-8 rounded-[2.5rem] flex flex-col justify-center text-center">
+          <div onClick={() => fileInputRef.current?.click()} className="group border-2 border-dashed border-white/10 rounded-[2rem] p-12 md:p-20 cursor-pointer hover:border-indigo-500 hover:bg-indigo-600/[0.03] transition-all relative">
+            <IconUpload className="w-12 h-12 text-indigo-600 mx-auto mb-6 group-hover:scale-110 transition-transform" />
+            <h3 className="text-2xl font-black uppercase italic tracking-widest mb-1">{t.uploadFile}</h3>
+            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">MP4, MOV, PNG, JPG</p>
+            <input ref={fileInputRef} type="file" className="hidden" onChange={handleFileUpload} />
+          </div>
+        </div>
+      </div>
+
+      {status === AnalysisStatus.ANALYZING && (
+        <div className="py-24 text-center space-y-8">
+          <div className="w-16 h-16 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <h2 className="text-3xl font-black uppercase italic animate-pulse">{t.loading}</h2>
+        </div>
+      )}
+
+      {status === AnalysisStatus.COMPLETED && result && (
+        <div className="space-y-16 animate-in fade-in slide-in-from-bottom-10">
+          {/* Master DNA */}
+          <div className="bg-white/[0.02] border border-white/10 p-8 md:p-12 rounded-[2.5rem] space-y-8 shadow-premium">
+            <div className="flex flex-col sm:flex-row justify-between items-center border-b border-white/5 pb-6 gap-4">
+              <h2 className="text-3xl font-black uppercase italic">{t.masterDNA}</h2>
+              <button onClick={() => copyToClipboard(result.fullMasterPrompt)} className="bg-indigo-600 px-6 py-3 rounded-xl font-black uppercase text-[9px] tracking-widest flex items-center gap-2">
+                <IconCopy className="w-4 h-4" /> {t.copy} Full Prompt
+              </button>
+            </div>
+            <div className="bg-black/60 p-6 md:p-10 rounded-[1.5rem] border border-white/5 text-sm md:text-lg font-medium italic text-slate-300 leading-relaxed font-serif max-h-96 overflow-y-auto">
+              "{result.fullMasterPrompt}"
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Social Kit */}
+            <div className="bg-white/[0.02] border border-white/10 p-8 rounded-[2rem] space-y-6">
+              <h2 className="text-xl font-black uppercase italic text-indigo-400">{t.socialKitTitle}</h2>
+              <div className="space-y-4">
+                <div className="bg-black/40 p-4 rounded-xl border border-white/5">
+                  <span className="text-[8px] font-black uppercase text-slate-500 tracking-widest mb-1 block">Hook</span>
+                  <p className="text-sm font-bold italic">"{result.socialKit.hook}"</p>
+                </div>
+                <div className="bg-black/40 p-4 rounded-xl border border-white/5">
+                  <span className="text-[8px] font-black uppercase text-slate-500 tracking-widest mb-1 block">Descrição</span>
+                  <p className="text-xs text-slate-400 whitespace-pre-wrap">{result.socialKit.descriptionPlain}</p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {result.socialKit.hashtags.map(h => <span key={h} className="text-[9px] font-bold text-indigo-500">{h}</span>)}
+                </div>
+              </div>
+            </div>
+            {/* Negative DNA */}
+            <div className="bg-white/[0.02] border border-white/10 p-8 rounded-[2rem] space-y-6">
+              <h2 className="text-xl font-black uppercase italic text-pink-500">{t.negativePromptTitle}</h2>
+              <div className="bg-black/40 p-6 rounded-xl border border-white/5 text-xs italic opacity-70 leading-relaxed font-mono">
+                {result.negativePrompt}
+              </div>
+              <button onClick={() => copyToClipboard(result.negativePrompt)} className="w-full bg-white/5 border border-white/10 py-3 rounded-xl font-black uppercase text-[9px] tracking-widest hover:bg-white/10 transition-all">{t.copy} Negative</button>
+            </div>
+          </div>
+
+          {/* Thumbnail Blueprint */}
+          <div className="bg-indigo-600/5 border border-indigo-500/20 p-8 md:p-12 rounded-[2.5rem] space-y-6">
+             <h2 className="text-xl font-black uppercase italic text-indigo-400">{t.thumbnailTitle}</h2>
+             <div className="grid md:grid-cols-3 gap-6 items-start">
+                <div className="md:col-span-2 bg-black/40 p-6 rounded-xl border border-white/5 font-serif italic text-base leading-relaxed">
+                  "{result.thumbnailBlueprint.prompt}"
+                </div>
+                <div className="space-y-4">
+                  <p className="text-[10px] text-slate-400 leading-relaxed uppercase font-bold tracking-widest">{result.thumbnailBlueprint.visualComposition}</p>
+                  <button onClick={() => copyToClipboard(result.thumbnailBlueprint.prompt)} className="w-full bg-indigo-600 py-3 rounded-xl font-black uppercase text-[9px] tracking-widest">{t.copy} Thumbnail DNA</button>
+                </div>
+             </div>
+          </div>
+
+          {/* Variations */}
+          <div className="space-y-10">
+            <h2 className="text-3xl font-black uppercase italic tracking-tighter text-center">{t.variationsTitle}</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {result.viralVariations.map((v, i) => (
+                <div key={i} className="bg-white/[0.02] border border-white/10 p-6 rounded-[1.5rem] space-y-4 hover:border-indigo-500 transition-all flex flex-col group">
+                  <div className="space-y-1">
+                    <span className="text-[8px] font-black uppercase text-indigo-500 tracking-widest">{v.type}</span>
+                    <h3 className="text-lg font-black uppercase italic group-hover:text-indigo-400 transition-colors">{v.title}</h3>
+                    <p className="text-[8px] text-slate-500 font-bold uppercase tracking-tighter">{v.strategy}</p>
+                  </div>
+                  <div className="bg-black/40 p-4 rounded-xl border border-white/5 text-[10px] flex-grow font-serif italic max-h-48 overflow-y-auto leading-relaxed text-slate-400">
+                    "{v.fullModifiedPrompt}"
+                  </div>
+                  <button onClick={() => copyToClipboard(v.fullModifiedPrompt)} className="w-full bg-white/5 border border-white/10 py-3 rounded-lg font-black uppercase text-[9px] tracking-widest group-hover:bg-indigo-600 transition-all">{t.copy} Variação</button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex justify-center pt-10">
+             <button onClick={() => { setStatus(AnalysisStatus.IDLE); setResult(null); }} className="bg-white text-black px-10 py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-indigo-600 hover:text-white transition-all shadow-xl">
+                <IconRotate className="w-4 h-4 inline-block mr-2" /> {t.newAnalysis}
+             </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
+  const renderLanding = () => (
     <div className="animate-in fade-in duration-700">
-      {/* HERO */}
+      {/* Hero Section */}
       <section className="text-center mb-24 md:mb-40 pt-20 md:pt-40 px-4">
          <span className="inline-block bg-indigo-600/10 border border-indigo-500/20 px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.4em] text-indigo-400 mb-8">{t.heroTag}</span>
          <h1 className="hero-h1 text-4xl md:text-8xl font-black uppercase tracking-tighter italic leading-none mb-10 gradient-text">{t.heroH1}</h1>
          <p className="text-xl md:text-2xl text-slate-400 font-medium leading-relaxed max-w-3xl mx-auto mb-12 italic">{t.heroDesc}</p>
          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="#pricing" className="w-full sm:w-auto bg-white text-black px-10 py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-600 hover:text-white transition-all shadow-premium">{t.ctaPricing}</a>
-            <a href="#workstation" className="w-full sm:w-auto border border-white/10 px-10 py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-white/5 transition-all">{t.ctaWorkstation}</a>
+            <button onClick={() => setShowLoginModal(true)} className="w-full sm:w-auto border border-white/10 px-10 py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-white/5 transition-all">{t.ctaWorkstation}</button>
          </div>
       </section>
 
-      {/* CORE FEATURES GRID */}
+      {/* Features */}
       <section className="py-24 border-t border-white/5 max-w-7xl mx-auto px-4">
         <div className="text-center mb-20 space-y-4">
-          <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">System Intelligence</h2>
-          <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px]">Deconstructing the impossible</p>
+          <h2 className="text-4xl md:text-6xl font-black uppercase italic tracking-tighter">{t.systemIntel}</h2>
+          <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px]">{t.systemIntelDesc}</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {FEATURES.map((f, i) => (
@@ -343,140 +470,48 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* WORKSTATION */}
-      <section id="workstation" className="mb-40 space-y-16 px-4">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
-          <div className="space-y-8">
-            <div className="bg-white/[0.02] border border-white/10 p-8 rounded-[2.5rem] space-y-8">
-              <h3 className="text-[10px] font-black uppercase tracking-widest text-indigo-400">Target Engine</h3>
-              <div className="grid grid-cols-2 gap-3">
-                {TARGET_MODELS.map(m => (
-                  <button key={m.id} onClick={() => setTargetModel(m.id)} className={`flex items-center gap-3 p-4 rounded-xl border transition-all ${targetModel === m.id ? 'bg-indigo-600 border-indigo-400 shadow-lg' : 'bg-white/5 border-white/10 opacity-50'}`}>
-                    <span className="text-2xl">{m.icon}</span>
-                    <span className="text-[10px] font-black uppercase tracking-widest">{m.name}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="bg-white/[0.02] border border-white/10 p-8 rounded-[2.5rem] space-y-8">
-               <h3 className="text-[10px] font-black uppercase tracking-widest text-indigo-400">Parameters</h3>
-               <div className="space-y-6">
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-[9px] font-black uppercase text-slate-600"><span>Fidelity</span><span className="text-indigo-400">{config.fidelity} %</span></div>
-                    <input type="range" min="0" max="100" value={config.fidelity} onChange={e => setConfig({...config, fidelity: parseInt(e.target.value)})} className="w-full accent-indigo-600" />
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-[9px] font-black uppercase text-slate-600"><span>Detail</span><span className="text-indigo-400">{config.detailLevel} %</span></div>
-                    <input type="range" min="0" max="100" value={config.detailLevel} onChange={e => setConfig({...config, detailLevel: parseInt(e.target.value)})} className="w-full accent-indigo-600" />
-                  </div>
-               </div>
-            </div>
-          </div>
-          <div className="bg-white/[0.02] border border-white/10 p-10 rounded-[3rem] flex flex-col justify-center text-center">
-            {!isSubscriber ? (
-              <div className="space-y-6 py-8">
-                <IconSparkles className="w-12 h-12 text-indigo-500 mx-auto" />
-                <h3 className="text-3xl font-black uppercase italic tracking-tighter">Terminal Locked</h3>
-                <a href="#pricing" className="inline-block bg-indigo-600 px-8 py-4 rounded-xl font-black uppercase text-[10px] tracking-widest">Get Access</a>
-              </div>
-            ) : (
-              <div onClick={() => fileInputRef.current?.click()} className="group border-2 border-dashed border-white/10 rounded-[2.5rem] p-16 md:p-24 cursor-pointer hover:border-indigo-500 hover:bg-indigo-600/[0.03] transition-all">
-                <IconUpload className="w-16 h-16 text-indigo-600 mx-auto mb-8 group-hover:scale-110 transition-transform duration-500" />
-                <h3 className="text-3xl font-black uppercase italic tracking-widest mb-2">Upload File</h3>
-                <input ref={fileInputRef} type="file" className="hidden" onChange={handleFileUpload} />
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* ANALYSIS RESULTS */}
-      {status === AnalysisStatus.ANALYZING && (
-        <div className="py-24 text-center">
-          <div className="w-16 h-16 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mx-auto mb-8"></div>
-          <h2 className="text-3xl font-black uppercase italic animate-pulse">{t.loading}</h2>
-        </div>
-      )}
-
-      {status === AnalysisStatus.COMPLETED && result && (
-        <div className="space-y-12 animate-in fade-in slide-in-from-bottom-10 mb-40 px-4">
-           <div className="bg-white/[0.02] border border-white/10 p-10 md:p-16 rounded-[3rem] space-y-10 shadow-premium max-w-7xl mx-auto">
-              <div className="flex justify-between items-center border-b border-white/5 pb-8">
-                <h2 className="text-5xl font-black uppercase italic">Master DNA</h2>
-                <button onClick={() => { navigator.clipboard.writeText(result.fullMasterPrompt); alert("Copied!"); }} className="bg-indigo-600 px-6 py-3 rounded-xl font-black uppercase text-[10px] tracking-widest flex items-center gap-2">
-                  <IconCopy className="w-4 h-4" /> Copy
-                </button>
-              </div>
-              <div className="bg-black/60 p-8 md:p-12 rounded-[2rem] border border-white/5 text-xl md:text-3xl font-medium italic text-slate-300 leading-relaxed font-serif">
-                "{result.fullMasterPrompt}"
-              </div>
-           </div>
-        </div>
-      )}
-
-      {/* PRICING */}
+      {/* Pricing */}
       <section id="pricing" className="py-32 border-t border-white/5 space-y-16 bg-gradient-to-b from-transparent to-indigo-950/10">
         <div className="text-center space-y-3">
-          <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter">License.</h2>
-          <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px]">Join the top 0.1% of creators</p>
+          <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter">{t.licenseTitle}</h2>
+          <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px]">Escolha seu nível de acesso ao DNA Visual</p>
         </div>
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto px-4">
           <div className="bg-white/[0.01] border border-white/10 rounded-[3rem] p-12 flex flex-col hover:border-indigo-500 transition-all">
             <div className="flex justify-between items-start mb-8">
               <div>
-                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4 block">Standard Plan</span>
-                <h3 className="text-5xl font-black uppercase italic mb-2">$29<span className="text-lg text-slate-600 tracking-normal font-bold">/monthly</span></h3>
+                <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-4 block">{t.standardPlan}</span>
+                <h3 className="text-5xl font-black uppercase italic mb-2">R$ 97<span className="text-lg text-slate-600 tracking-normal font-bold">{t.monthly}</span></h3>
               </div>
               <IconSparkles className="w-6 h-6 text-slate-700" />
             </div>
-            <p className="text-slate-500 text-sm font-medium mb-10 leading-relaxed italic">Essential workstation access for rising architects. High-speed deconstruction and cinematic presets.</p>
-            <ul className="space-y-4 mb-10 border-y border-white/5 py-8">
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400">
-                <span className="text-indigo-500">✓</span> Full Terminal Access
-              </li>
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400">
-                <span className="text-indigo-500">✓</span> Midjourney & Sora Engines
-              </li>
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400">
-                <span className="text-indigo-500">✓</span> Viral Social Media Kit
-              </li>
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400 opacity-30">
-                <span>×</span> 4K Ultra Sampling
-              </li>
+            <ul className="space-y-4 mb-10 text-slate-500 font-medium text-sm">
+              <li className="flex items-center gap-2"><IconSparkles className="w-3 h-3 text-indigo-500"/> Extração ilimitada de prompts</li>
+              <li className="flex items-center gap-2"><IconSparkles className="w-3 h-3 text-indigo-500"/> Kit Social Viral Automático</li>
+              <li className="flex items-center gap-2"><IconSparkles className="w-3 h-3 text-indigo-500"/> Blueprint de Thumbnails</li>
             </ul>
-            <a href={HOTMART_BASIC} className="block bg-white text-black text-center py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-600 hover:text-white transition-all shadow-xl">Subscribe Now</a>
+            <a href={HOTMART_BASIC} className="block bg-white text-black text-center py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-600 hover:text-white transition-all shadow-xl">{t.subscribeNow}</a>
           </div>
-
           <div className="bg-indigo-600/5 border-2 border-indigo-500 rounded-[3rem] p-12 flex flex-col relative overflow-hidden shadow-premium">
-            <div className="absolute top-0 right-0 bg-indigo-500 text-[8px] font-black uppercase tracking-[0.3em] px-8 py-2 -rotate-45 translate-x-12 translate-y-6">Best Value</div>
+            <div className="absolute top-0 right-0 bg-indigo-500 text-[8px] font-black uppercase tracking-[0.3em] px-8 py-2 -rotate-45 translate-x-12 translate-y-6">{t.bestValue}</div>
             <div className="flex justify-between items-start mb-8">
               <div>
-                <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-4 block">Elite Architect</span>
-                <h3 className="text-5xl font-black uppercase italic mb-2">$97<span className="text-lg text-indigo-400/50 tracking-normal font-bold">/lifetime</span></h3>
+                <span className="text-[10px] font-black text-indigo-400 uppercase tracking-widest mb-4 block">Plano Vitalício Elite</span>
+                <h3 className="text-5xl font-black uppercase italic mb-2">R$ 297<span className="text-lg text-indigo-400/50 tracking-normal font-bold">{t.lifetime}</span></h3>
               </div>
               <IconSparkles className="w-8 h-8 text-indigo-400" />
             </div>
-            <p className="text-slate-400 text-sm font-medium mb-10 leading-relaxed italic">The ultimate professional protocol. One-time payment for eternal access to the evolving DNA of visual AI.</p>
-            <ul className="space-y-4 mb-10 border-y border-white/5 py-8">
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-200">
-                <span className="text-indigo-400">✓</span> Lifetime Terminal Updates
-              </li>
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-200">
-                <span className="text-indigo-400">✓</span> 4K Ultra Sampling Deconstruction
-              </li>
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-200">
-                <span className="text-indigo-400">✓</span> All Future Engines (Kling, Luma)
-              </li>
-              <li className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-200">
-                <span className="text-indigo-400">✓</span> Priority Neural Processing
-              </li>
+            <ul className="space-y-4 mb-10 text-slate-300 font-medium text-sm">
+              <li className="flex items-center gap-2"><IconSparkles className="w-4 h-4 text-indigo-500"/> Tudo do plano mensal</li>
+              <li className="flex items-center gap-2"><IconSparkles className="w-4 h-4 text-indigo-500"/> Extração via URL (YouTube/TikTok)</li>
+              <li className="flex items-center gap-2"><IconSparkles className="w-4 h-4 text-indigo-500"/> Updates vitalícios do motor neural</li>
             </ul>
-            <a href={HOTMART_ELITE} className="block bg-indigo-600 text-white text-center py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all shadow-indigo-500/20 shadow-2xl">Secure Lifetime Access</a>
+            <a href={HOTMART_ELITE} className="block bg-indigo-600 text-white text-center py-5 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all shadow-indigo-500/20 shadow-2xl">{t.secureAccess}</a>
           </div>
         </div>
       </section>
 
-      {/* KNOWLEDGE BASE / BLOG LIST */}
+      {/* Articles Section */}
       <section className="py-32 border-t border-white/5 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 space-y-4">
@@ -485,17 +520,13 @@ const App: React.FC = () => {
           </div>
           <div className="grid gap-6">
             {POSTS.map(post => (
-              <a 
-                key={post.id} 
-                href={`#${post.slug}`}
-                className="group flex flex-col md:flex-row md:items-center justify-between p-8 bg-white/[0.02] border border-white/5 rounded-[2rem] hover:bg-white/[0.05] transition-all"
-              >
+              <a key={post.id} href={`#${post.slug}`} className="group flex flex-col md:flex-row md:items-center justify-between p-8 bg-white/[0.02] border border-white/5 rounded-[2rem] hover:bg-white/[0.05] transition-all">
                 <div className="space-y-2">
                   <span className="text-[9px] font-black uppercase text-indigo-500 tracking-widest">{post.category}</span>
                   <h3 className="text-xl md:text-2xl font-black uppercase italic group-hover:text-indigo-400 transition-colors">{post.title}</h3>
                 </div>
                 <div className="mt-4 md:mt-0 flex items-center gap-4 text-[10px] font-black uppercase text-slate-600 tracking-widest">
-                  <span>{post.readTime} READ</span>
+                  <span>{post.readTime}</span>
                   <IconChevron className="w-4 h-4 -rotate-90 text-indigo-600" />
                 </div>
               </a>
@@ -527,33 +558,18 @@ const App: React.FC = () => {
     return (
       <div className="animate-in slide-in-from-bottom-10 duration-700 pt-32 pb-40">
         <div className="max-w-4xl mx-auto px-6">
-          <button 
-            onClick={() => { window.location.hash = ''; }} 
-            className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-indigo-500 mb-12 hover:text-white transition-colors"
-          >
+          <button onClick={() => { window.location.hash = ''; }} className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-indigo-500 mb-12 hover:text-white transition-colors">
             <IconChevron className="w-4 h-4 rotate-90" /> {t.back}
           </button>
-          
-          <div className="flex items-center gap-4 mb-8">
-            <span className="bg-indigo-600 px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest">{activePost.category}</span>
-            <span className="text-slate-600 text-[10px] font-black uppercase tracking-widest">{activePost.readTime} TECHNICAL STUDY</span>
-          </div>
-
           <article className="post-body">
             <h1 className={activePost.keyword === "extract prompt from video" ? "gradient-text" : ""}>{activePost.title}</h1>
-            <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 mb-16 space-y-2">
-               <p className="text-[10px] font-mono text-indigo-400"><strong>Index Keyword:</strong> {activePost.keyword}</p>
-               <p className="text-[10px] font-mono text-slate-500"><strong>SEO Title:</strong> {activePost.seoTitle}</p>
-               <p className="text-[10px] font-mono text-slate-500"><strong>Meta Description:</strong> {activePost.metaDesc}</p>
-            </div>
             <div dangerouslySetInnerHTML={{ __html: activePost.content }} />
+            <div className="mt-20 p-12 bg-indigo-600/10 border border-indigo-500/20 rounded-[3rem] text-center space-y-8">
+               <h2 className="text-4xl font-black uppercase italic tracking-tighter m-0 border-0 p-0">{t.readyToArchitect}</h2>
+               <p className="text-xl font-medium text-slate-400 italic">{t.dontLetViral}</p>
+               <a href="#pricing" className="inline-block bg-white text-black px-12 py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:scale-105 transition-all">{t.buyNow}</a>
+            </div>
           </article>
-          
-          <div className="mt-20 p-12 bg-indigo-600 rounded-[3rem] text-center space-y-8 shadow-premium">
-             <h2 className="text-4xl font-black uppercase italic tracking-tighter">Ready to Architect Your Success?</h2>
-             <p className="text-xl font-medium opacity-80 italic">Don't let another viral DNA sequence slip through your fingers.</p>
-             <a href="#pricing" className="inline-block bg-white text-black px-12 py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:scale-105 transition-all">{t.buyNow}</a>
-          </div>
         </div>
       </div>
     );
@@ -563,7 +579,7 @@ const App: React.FC = () => {
     <div className="min-h-screen">
       <nav className="fixed top-0 w-full z-[150] glass border-b border-white/5 px-4 md:px-12 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <a href="#" className="flex items-center gap-2">
+          <a href="#" className="flex items-center gap-2" onClick={(e) => { e.preventDefault(); window.location.hash = ''; }}>
             <IconSparkles className="w-5 h-5 text-indigo-500" />
             <span className="font-black tracking-tighter text-lg uppercase italic">V-REVERSE <span className="text-indigo-500">PRO</span></span>
           </a>
@@ -580,32 +596,34 @@ const App: React.FC = () => {
                 ))}
               </div>
             </div>
-            {!isSubscriber && <button onClick={() => setShowLoginModal(true)} className="bg-indigo-600 px-4 py-1.5 rounded-full text-[10px] font-black uppercase">Portal</button>}
+            {!isSubscriber && <button onClick={() => setShowLoginModal(true)} className="bg-indigo-600 px-4 py-1.5 rounded-full text-[10px] font-black uppercase">{t.portal}</button>}
+            {isSubscriber && (
+              <div className="flex items-center gap-3">
+                <span className="bg-indigo-500/10 border border-indigo-500/20 text-[8px] font-black uppercase tracking-widest text-indigo-400 px-3 py-1.5 rounded-lg hidden sm:inline">License: PRO</span>
+                <button onClick={() => { setIsSubscriber(false); localStorage.removeItem('v-reverse-email'); window.location.hash = ''; }} className="bg-white/10 px-4 py-1.5 rounded-full text-[10px] font-black uppercase opacity-50 hover:opacity-100 transition-opacity">Logout</button>
+              </div>
+            )}
           </div>
         </div>
       </nav>
 
-      {view === 'home' ? renderHome() : renderPost()}
+      {view === 'home' ? (isSubscriber ? renderDashboard() : renderLanding()) : renderPost()}
 
-      {/* FOOTER */}
       <footer className="border-t border-white/5 py-16 text-center">
         <IconSparkles className="w-6 h-6 text-indigo-600 mx-auto mb-6" />
-        <span className="font-black text-xl uppercase italic block mb-10">V-REVERSE PRO</span>
-        <div className="flex justify-center gap-10 text-[9px] font-black uppercase tracking-widest text-slate-600">
-          <a href="#">Terms</a><a href="#">Privacy</a><a href="#">Support</a>
-        </div>
+        <span className="font-black text-xl uppercase italic block mb-4">V-REVERSE PRO</span>
+        <p className="text-slate-600 text-[9px] uppercase tracking-[0.5em]">&copy; 2025 Architect Prime Workstation</p>
       </footer>
 
-      {/* LOGIN MODAL */}
       {showLoginModal && (
         <div className="fixed inset-0 z-[300] flex items-center justify-center p-4 bg-black/95 backdrop-blur-3xl">
           <div className="w-full max-w-md p-10 bg-[#0f172a] border border-white/10 rounded-[3rem] text-center space-y-8 shadow-premium">
-            <h2 className="text-3xl font-black uppercase tracking-tighter italic">Architect Portal</h2>
+            <h2 className="text-3xl font-black uppercase tracking-tighter italic">{t.portalTitle}</h2>
             <input type="email" placeholder="email@architect.com" value={loginEmail} onChange={e => setLoginEmail(e.target.value)} className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-center font-bold outline-none focus:border-indigo-500 transition-all" />
             <button onClick={() => validateSub(loginEmail)} disabled={loginLoading} className="w-full bg-indigo-600 py-4 rounded-xl font-black uppercase text-xs tracking-widest">
-              {loginLoading ? 'Verifying...' : 'Unlock Terminal'}
+              {loginLoading ? t.verifying : t.unlockTerminal}
             </button>
-            <button onClick={() => setShowLoginModal(false)} className="text-[10px] font-black uppercase opacity-30">Return</button>
+            <button onClick={() => setShowLoginModal(false)} className="text-[10px] font-black uppercase opacity-30">{t.return}</button>
           </div>
         </div>
       )}

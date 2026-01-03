@@ -1,23 +1,29 @@
 
 import { createClient } from '@supabase/supabase-js';
 
-// Configurações do Supabase
 const supabaseUrl = 'https://eunkucxcttrakmtgxpup.supabase.co';
 const supabaseKey = 'sb_publishable_W8D0WR0_gwUoJqxfTG01OA_b145MRON';
 
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
+// E-mail correto do Super Admin para bypass de autenticação
+const SUPER_ADMINS = ['jadermourabh@gmail.com'];
+
 /**
- * Verifica se um e-mail existe na base de dados
- * Adiciona normalização de strings para evitar erros comuns de digitação
+ * Verifica se um e-mail existe na base de dados ou é um super admin
  */
 export const checkSubscription = async (email: string): Promise<boolean> => {
   if (!email || !email.includes('@')) return false;
   
   const cleanEmail = email.toLowerCase().trim();
 
+  // Bypass imediato para Super Admin
+  if (SUPER_ADMINS.includes(cleanEmail)) {
+    console.log('Acesso Super Admin detectado para:', cleanEmail);
+    return true;
+  }
+
   try {
-    // Busca na tabela 'subscribers' que é populada pelo nosso Webhook (via Cloudflare ou CLI)
     const { data, error } = await supabase
       .from('subscribers')
       .select('email')
