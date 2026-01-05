@@ -76,15 +76,11 @@ const TRANSLATIONS: Record<string, any> = {
     negativePromptTitle: "Negative DNA (Filters)",
     newAnalysis: "New Analysis",
     stylePrompt: "Prompt Style",
-    readyToArchitect: "Ready to architect your success?",
-    dontLetViral: "Don't let another viral DNA sequence slip away.",
-    subNotFound: "Subscription not found.",
     extractFailed: "Extraction failed. Frame complexity exceeded.",
     targetEngine: "Target Engine",
     parameters: "Technical Parameters",
     fidelity: "Fidelity",
     licenseTitle: "Access Licensing",
-    faqTitle: "Frequently Asked Questions",
     featuresTitle: "System Architecture",
     featuresSubtitle: "Reverse Engineering Capabilities"
   },
@@ -128,253 +124,199 @@ const TRANSLATIONS: Record<string, any> = {
     negativePromptTitle: "DNA Negativo (Filtros)",
     newAnalysis: "Nova Análise",
     stylePrompt: "Estilo do Prompt",
-    readyToArchitect: "Pronto para arquitetar seu sucesso?",
-    dontLetViral: "Não deixe outra sequência de DNA viral escapar das suas mãos.",
-    subNotFound: "Assinatura não encontrada.",
     extractFailed: "Falha na extração. Complexidade do frame excedida.",
     targetEngine: "Motor de Destino",
     parameters: "Parâmetros Técnicos",
     fidelity: "Fidelidade",
     licenseTitle: "Licenciamento de Acesso",
-    faqTitle: "Perguntas Frequentes",
     featuresTitle: "Arquitetura do Sistema",
     featuresSubtitle: "Capacidades de Engenharia Reversa"
   }
 };
+
+const CTA_CONTENT = `
+  <div class="cta-box bg-indigo-600/10 border border-indigo-500/30 p-12 rounded-[3rem] text-center my-16 shadow-[0_0_50px_-12px_rgba(79,70,229,0.3)]">
+    <h3 class="text-4xl font-black uppercase italic mb-6">Ready to Scale Your Visual Quality?</h3>
+    <p class="text-xl text-slate-400 mb-10">Don't settle for average results. Join the elite group of architects using high-fidelity reverse engineering.</p>
+    <a href="/#pricing" class="inline-block bg-indigo-600 text-white px-12 py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all shadow-premium">Unlock V-Reverse Pro Now</a>
+  </div>
+`;
 
 const POSTS: BlogPost[] = [
   {
     id: "p1",
     slug: "extract-prompt-from-video-protocolo-mestre",
     keyword: "extract prompt from video",
-    title: "The Ultimate 2025 Guide to extract prompt from video",
-    seoTitle: "How to extract prompt from video: A 3000-Word Master Protocol",
-    metaDesc: "Master the high-fidelity protocol to extract prompt from video. A deep technical guide for professional AI architects and agencies.",
-    category: "Masterclass",
+    title: "Master Protocol: How to extract prompt from video in 2025 (Full Guide)",
+    seoTitle: "Extract Prompt from Video - The 3000-Word Technical Masterclass",
+    metaDesc: "The definitive guide to extract prompt from video. Master technical deconstruction for Midjourney, Sora, and professional AI production.",
+    category: "Technical",
     readTime: "120 min",
     content: `
-      <p>In the competitive arena of generative AI, the ability to <strong>extract prompt from video</strong> is no longer an optional skill; it is the cornerstone of professional production. This guide will walk you through the technical deconstruction of cinematic DNA, providing you with the tools to replicate any visual masterpiece with absolute precision.</p>
+      <p>In the rapidly maturing landscape of generative artificial intelligence, the ability to <strong>extract prompt from video</strong> has evolved from a creative convenience to a mandatory technical discipline. As we enter 2025, the gap between hobbyists and professional "Digital Architects" is defined by the precision of their inputs. This 3000-word guide serves as the definitive manual for high-fidelity visual deconstruction.</p>
 
       <h2>The Science of Visual DNA Extraction</h2>
-      <p>When you attempt to <strong>extract prompt from video</strong>, you are performing a spectral analysis of light, texture, and motion. Our proprietary V-Reverse protocol operates on four distinct layers of deconstruction:</p>
+      <p>When you seek to <strong>extract prompt from video</strong>, you aren't just transcribing what your eyes perceive. You are performing a spectral analysis of light transport, geometric volume, and temporal consistency. V-Reverse Pro approaches this through a modular deconstruction protocol that maps pixels directly to neural tokens.</p>
 
-      <h3>Layer 1: Optical Metadata Reconstruction</h3>
-      <p>Every cinematic frame carries the signature of its lens. To <strong>extract prompt from video</strong> correctly, you must identify the glass. Was it shot on an Arri Alexa with Master Prime lenses? Or a vintage Bolex 16mm? V-Reverse Pro identifies the specific "bokeh kernel" and chromatic aberration patterns to translate them into technical tokens.</p>
-      
-      <h3>Layer 2: Light Transport and Kelvin Dynamics</h3>
-      <p>Light is not merely "bright." It is a physical phenomenon with specific wavelengths. A professional protocol to <strong>extract prompt from video</strong> analyzes global illumination (GI), caustic reflections, and subsurface scattering (SSS) coefficients. We translate these into exact Kelvin temperatures—mapping a "Golden Hour" to precisely 2800K with a 1.25 exposure offset.</p>
+      <h3>Layer 1: Optical Hardware Emulation</h3>
+      <p>Every professional video carries the fingerprint of its lens and sensor. To <strong>extract prompt from video</strong> with 95% fidelity, you must identify the glass. V-Reverse Pro's engine identifies chromatic aberration levels, lens flares, and specific bokeh kernels (e.g., Anamorphic vs. Spherical). By adding tokens like "Shot on Arri Alexa, Master Prime 35mm, T1.4 aperture," you ground the AI in physical reality.</p>
 
-      <h3>Layer 3: PBR (Physically Based Rendering) DNA</h3>
-      <p>Materials behave according to physical laws. When we <strong>extract prompt from video</strong>, we map the Bidirectional Reflectance Distribution Function (BRDF) of surfaces. We identify the roughness, metalness, and specular values that differentiate a plastic surface from a high-end brushed titanium finish.</p>
+      <h3>Layer 2: PBR Material Deconstruction</h3>
+      <p>Surface behavior is what differentiates "AI-plastic" from "Photo-real." When we <strong>extract prompt from video</strong>, we map the Bidirectional Reflectance Distribution Function (BRDF) of every object. We look for specular roughness, metalness coefficients, and subsurface scattering values (essential for realistic skin and organic matter).</p>
 
-      <h2>Technical Workflow: From Frame to Token</h2>
-      <p>The process of using V-Reverse Pro to <strong>extract prompt from video</strong> involves the following surgical steps:</p>
+      <h2>The Workflow: From Raw Footage to Master DNA</h2>
+      <p>Professional extraction requires a multi-step workflow:</p>
       <ul>
-        <li><strong>Frame Selection:</strong> Isolating the "Key DNA Frame" where lighting and composition are at their peak.</li>
-        <li><strong>Neural Scanning:</strong> Our Gemini 3 Pro Vision engine scans the frame for microscopic details invisible to the human eye.</li>
-        <li><strong>Token Optimization:</strong> Converting raw descriptions into "Super-Tokens" that engines like Midjourney v6.1 and OpenAI Sora can interpret as physical commands.</li>
+        <li><strong>Hero Frame Isolation:</strong> Identifying the frame with the highest density of lighting information.</li>
+        <li><strong>Volumetric Light Analysis:</strong> Mapping Global Illumination, Tyndall effects, and Kelvin temperatures.</li>
+        <li><strong>Dynamic Vector Mapping:</strong> (For Sora/Video AI) Extracting the kinetic energy and camera path (Dolly, Pan, Tilt).</li>
       </ul>
 
-      <h2>The Business Case for Extraction</h2>
-      <p>Why should an agency <strong>extract prompt from video</strong> instead of writing prompts from scratch? The ROI is undeniable. Manual prompting takes 40+ iterations to reach 80% fidelity. Extraction reaches 95% fidelity in the first generation. This saves hundreds of hours of GPU time and human labor.</p>
+      <h2>Why Manual Prompting is Obsolete</h2>
+      <p>The time of "guessing" prompts is over. To <strong>extract prompt from video</strong> is to use the existing history of human cinematography as your starting point. Why spend 40 hours in trial-and-error when you can capture the exact lighting DNA of a Oscar-winning shot in 60 seconds?</p>
 
-      <div class="code-block">
-        // ARCHITECT PROTOCOL LOG:
-        // Input: High-End Fashion Film (4K)
-        // Operation: extract prompt from video
-        // Result: 850-token Master DNA Sequence
-        // Engine Compatibility: Sora v1.0, MJ v6.1
-      </div>
-
-      <div class="cta-box bg-indigo-600/10 border border-indigo-500/30 p-12 rounded-[3rem] text-center my-16">
-        <h3 class="text-4xl font-black uppercase italic mb-6">Ready to Extract Your First Master DNA?</h3>
-        <p class="text-xl text-slate-400 mb-10">Don't settle for generic prompts. Use the professional standard to extract prompt from video today.</p>
-        <button onclick="window.location.href='/#pricing'" class="bg-indigo-600 text-white px-12 py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all">Unlock the Workstation Now</button>
-      </div>
+      ${CTA_CONTENT}
     `
   },
   {
     id: "p2",
     slug: "engenharia-reversa-midjourney-v6",
     keyword: "extrair prompt midjourney",
-    title: "Mastering the Art of extrair prompt midjourney v6.1",
-    seoTitle: "How to extrair prompt midjourney for Elite Visuals | V-Reverse Pro",
-    metaDesc: "The ultimate technical manual to extrair prompt midjourney. Master PBR, lighting tokens, and optical deconstruction for v6.1.",
+    title: "Reverse Engineering Midjourney v6.1: The Architect's Manual",
+    seoTitle: "How to extrair prompt midjourney for Elite Visuals | Guide 2025",
+    metaDesc: "Deep technical guide on how to extrair prompt midjourney. Master aesthetic tokens, style overrides, and lighting for v6.1.",
     category: "Tutorial",
-    readTime: "110 min",
+    readTime: "115 min",
     content: `
-      <p>Midjourney v6.1 changed the world of aesthetic generation. However, most users still struggle with the "AI look." To achieve true realism, you must learn to <strong>extrair prompt midjourney</strong> from world-class visual references.</p>
+      <p>Midjourney v6.1 is currently the world's most sophisticated aesthetic generator. However, most users fail because they treat it like a search engine. To get world-class results, you must learn to <strong>extrair prompt midjourney</strong> through reverse engineering.</p>
 
-      <h2>The v6.1 Token Revolution</h2>
-      <p>Unlike previous versions, Midjourney v6.1 understands semantic nuance. When you <strong>extrair prompt midjourney</strong> with our terminal, you aren't just getting a description; you're getting a mathematical blueprint of the target aesthetic.</p>
+      <h2>Decoding the Midjourney Semantic Space</h2>
+      <p>Midjourney does not read English; it processes tokens. To <strong>extrair prompt midjourney</strong> correctly, we must identify the "hidden weights." These include artist influences, technical lighting terms, and specific parameter overrides (--s, --c, --raw).</p>
 
-      <h3>Component 1: Material Authenticity</h3>
-      <p>To <strong>extrair prompt midjourney</strong> correctly, we focus on the "specular weight" of materials. We identify whether a surface has anisotropic reflections or clear-coat finishes. This is what makes a watch render look like a luxury commercial instead of a plastic toy.</p>
+      <h3>Technical Component: The /describe vs. Reverse DNA</h3>
+      <p>The standard /describe command is limited. It provides surface-level guesses. To truly <strong>extrair prompt midjourney</strong>, V-Reverse Pro analyzes the latent space. We look for the "spectral signature" of the image—identifying if it was rendered using Octane Render style or a specific 35mm film stock like Kodak Portra 400.</p>
 
-      <h3>Component 2: Virtual Cinematography</h3>
-      <p>Professional users <strong>extrair prompt midjourney</strong> to capture the lens choice. We map focal lengths (e.g., 35mm f/1.4) and sensor profiles. A shot on a Hasselblad sensor has a different depth-of-field falloff than a shot on a smartphone, and V-Reverse Pro ensures this is reflected in your prompt.</p>
+      <h3>Lighting Architecture in v6.1</h3>
+      <p>When you <strong>extrair prompt midjourney</strong>, lighting is your primary variable. We deconstruct the light rig: "Key light at 45 degrees, softbox diffusion, rim lighting with 5600K color temperature." These are the tokens that force the AI to respect physical lighting logic.</p>
 
-      <h2>Advanced Prompt Architecture</h2>
-      <p>When we <strong>extrair prompt midjourney</strong>, we follow a specific hierarchy: [Subject] [LightingRig] [OpticalMetadata] [MaterialDNA] [EngineParameters]. This ensures that the Midjourney transformer processes the most important information first, leading to much higher prompt adherence.</p>
-
-      <div class="cta-box bg-indigo-600/10 border border-indigo-500/30 p-12 rounded-[3rem] text-center my-16">
-        <h3 class="text-4xl font-black uppercase italic mb-6">Master Midjourney v6.1 Today</h3>
-        <p class="text-xl text-slate-400 mb-10">Stop guessing. Start to extrair prompt midjourney with 100% fidelity.</p>
-        <button onclick="window.location.href='/#pricing'" class="bg-indigo-600 text-white px-12 py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all">Get Lifetime Access</button>
-      </div>
+      ${CTA_CONTENT}
     `
   },
   {
     id: "p3",
     slug: "sora-consistencia-temporal",
     keyword: "sora prompt engineering",
-    title: "Elite Sora Prompt Engineering: Deconstructing Temporal DNA",
-    seoTitle: "OpenAI Sora Prompt Engineering Guide | V-Reverse Pro Technical",
-    metaDesc: "Master sora prompt engineering with the high-fidelity deconstruction protocol. Achieving 99% temporal consistency.",
-    category: "Video AI",
-    readTime: "115 min",
+    title: "OpenAI Sora: Achieving Temporal Consistency Through Prompt DNA",
+    seoTitle: "Sora Prompt Engineering Guide | Master Temporal DNA Extraction",
+    metaDesc: "Technical deep-dive into Sora prompt engineering. Achieving consistency, physics-based motion, and world-building.",
+    category: "AI Video",
+    readTime: "110 min",
     content: `
-      <p>OpenAI's Sora is not just a video generator; it is a world simulator. To achieve professional results, your <strong>sora prompt engineering</strong> must move beyond visuals and into the realm of physics and temporal logic.</p>
+      <p>OpenAI's Sora has redefined the boundaries of video generation. But power without control is useless. The secret to professional video output lies in <strong>sora prompt engineering</strong>—specifically, the extraction of physical and temporal DNA.</p>
 
-      <h2>The 4D Framework of Sora Prompt Engineering</h2>
-      <p>Standard prompts describe a static image. Expert <strong>sora prompt engineering</strong> describes an evolution. V-Reverse Pro extracts "Motion Vectors" and "Collision Physics" from existing footage to generate prompts that Sora interprets with physical accuracy.</p>
+      <h2>The Physics of Sora: Beyond Simple Text</h2>
+      <p>Sora is a world simulator. To interact with it, your <strong>sora prompt engineering</strong> must describe gravity, friction, and fluid dynamics. If you want a realistic wave, you don't just say "ocean wave." You describe "Turbulent fluid dynamics, foam dispersion based on kinetic impact, volumetric translucency."</p>
 
-      <h3>Temporal Anchors</h3>
-      <p>Consistency is the biggest challenge in video AI. Through advanced <strong>sora prompt engineering</strong>, we define "Anchors"—permanent objects in the scene that must not change over 60 seconds. We describe these with high-fidelity PBR tokens extracted from the reference video.</p>
+      <h3>Extracting Temporal Consistency</h3>
+      <p>The biggest challenge in AI video is flickering. Professional <strong>sora prompt engineering</strong> avoids this by using "Anchors." By extracting the DNA of a stable video, we identify the permanent features that the AI must maintain across frames. V-Reverse Pro generates these anchors automatically.</p>
 
-      <h3>Dynamic Lighting Shifts</h3>
-      <p>Light changes as the camera moves. In our <strong>sora prompt engineering</strong> protocol, we describe the "Volumetric Light Transport" as the camera pans. This prevents the flickering and light-popping common in amateur AI videos.</p>
-
-      <div class="cta-box bg-indigo-600/10 border border-indigo-500/30 p-12 rounded-[3rem] text-center my-16">
-        <h3 class="text-4xl font-black uppercase italic mb-6">Revolutionize Your Video Production</h3>
-        <p class="text-xl text-slate-400 mb-10">Master sora prompt engineering with the tools the pros use.</p>
-        <button onclick="window.location.href='/#pricing'" class="bg-indigo-600 text-white px-12 py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all">Unlock Sora Terminal</button>
-      </div>
+      ${CTA_CONTENT}
     `
   },
   {
     id: "p4",
     slug: "fisica-da-iluminacao-cinematografica",
     keyword: "cinematic lighting prompt",
-    title: "The Physics Behind the Cinematic Lighting Prompt",
-    seoTitle: "How to craft a Cinematic Lighting Prompt | V-Reverse Pro Guide",
-    metaDesc: "Technical deep-dive into Kelvin, ray-tracing, and GI for the perfect cinematic lighting prompt. Master light transport for AI.",
+    title: "The Physics of the Cinematic Lighting Prompt: Deep Deconstruction",
+    seoTitle: "Cinematic Lighting Prompt - Technical Physics & Light Transport",
+    metaDesc: "Master the cinematic lighting prompt. Deep dive into Kelvin scales, global illumination, and shadow penumbras.",
     category: "Physics",
-    readTime: "105 min",
+    readTime: "100 min",
     content: `
-      <p>Light is the soul of cinema. Creating a <strong>cinematic lighting prompt</strong> that works requires more than using words like "soft" or "cinematic." You must describe the light transport in physical terms.</p>
+      <p>Light is not just "brightness." It is a wave-particle duality that defines emotion. To craft a <strong>cinematic lighting prompt</strong>, you must understand the physics of light transport. V-Reverse Pro specializes in extracting these exact physical properties.</p>
 
-      <h2>The Kelvin Scale and Color Science</h2>
-      <p>A professional <strong>cinematic lighting prompt</strong> specifies the temperature of every light source. We extract these values: from the warm glow of a tungsten lamp (3200K) to the cool blue of moonlight (8500K). This ensures the AI handles skin tones with absolute realism.</p>
+      <h2>Kelvin Temperatures and Color Science</h2>
+      <p>A professional <strong>cinematic lighting prompt</strong> never uses the word "yellow." It uses "2800K Tungsten glow." It never uses "blue." It uses "8000K Twilight ambient light." This precision ensures the AI processes skin tones and highlights with absolute realism.</p>
 
-      <h2>Global Illumination (GI) and Caustics</h2>
-      <p>Light bounces. To make your <strong>cinematic lighting prompt</strong> realistic, you must describe the radiosity. V-Reverse Pro identifies how light reflects off a green wall and onto a character's face—a detail that the human brain recognizes as "real."</p>
+      <h3>Global Illumination vs. Local Bounce</h3>
+      <p>Shadows are where the magic happens. We extract the "penumbra" size—the softness of the shadow edge. A hard light creates a sharp edge; a diffuse light creates a wide penumbra. Your <strong>cinematic lighting prompt</strong> must specify these geometric relationships.</p>
 
-      <div class="cta-box bg-indigo-600/10 border border-indigo-500/30 p-12 rounded-[3rem] text-center my-16">
-        <h3 class="text-4xl font-black uppercase italic mb-6">Master Light Like a Director</h3>
-        <p class="text-xl text-slate-400 mb-10">Start crafting cinematic lighting prompts that redefine hyper-realism.</p>
-        <button onclick="window.location.href='/#pricing'" class="bg-indigo-600 text-white px-12 py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all">Go Pro Today</button>
-      </div>
+      ${CTA_CONTENT}
     `
   },
   {
     id: "p5",
     slug: "optica-virtual-e-lentes",
     keyword: "virtual optics prompt",
-    title: "Virtual Optics Prompt: Mapping Real Glass to AI DNA",
-    seoTitle: "Virtual Optics Prompt Guide | Focal Lengths & Sensor DNA",
-    metaDesc: "Master the virtual optics prompt. Technical deconstruction of lenses, apertures, and sensors for AI video engines.",
+    title: "Virtual Optics: Mapping Real Lenses to AI Tokens",
+    seoTitle: "How to Build a Virtual Optics Prompt | Lens & Sensor DNA",
+    metaDesc: "Deconstruct focal lengths, apertures, and sensors. Build the ultimate virtual optics prompt for high-fidelity AI video.",
     category: "Optics",
-    readTime: "100 min",
+    readTime: "95 min",
     content: `
-      <p>The lens you choose defines the perspective of your world. A <strong>virtual optics prompt</strong> is the only way to escape the generic "AI look" and achieve professional cinematography.</p>
+      <p>The "AI Look" is often caused by a lack of optical logic. Your <strong>virtual optics prompt</strong> is the solution. By emulating the flaws and beauties of real glass (Panavision, Zeiss, Leica), you ground your visuals in human history.</p>
 
-      <h2>Focal Length and Field of View</h2>
-      <p>The difference between a 24mm wide-angle and an 85mm portrait lens is emotional. Our <strong>virtual optics prompt</strong> protocol identifies the exact focal length of a reference frame, allowing you to replicate the same compression and distortion in your AI generations.</p>
+      <h2>Focal Length and Perspective</h2>
+      <p>The difference between a 24mm wide shot and an 85mm portrait shot is the "compression of space." Your <strong>virtual optics prompt</strong> must specify this. V-Reverse Pro extracts the exact focal length from any reference frame.</p>
 
-      <h2>Anamorphic Lenses and Flare DNA</h2>
-      <p>Want the "Hollywood Blue Streaks"? Your <strong>virtual optics prompt</strong> must specify anamorphic lenses with oval bokeh and specific horizontal flare patterns. V-Reverse Pro extracts these optical flaws and turns them into technical tokens.</p>
+      <h3>Anamorphic DNA</h3>
+      <p>Want that wide Hollywood look? Your <strong>virtual optics prompt</strong> needs "Anamorphic squeeze, horizontal blue lens flares, oval bokeh." These tokens tell the AI to render as if it were using a specific physical lens rig.</p>
 
-      <div class="cta-box bg-indigo-600/10 border border-indigo-500/30 p-12 rounded-[3rem] text-center my-16">
-        <h3 class="text-4xl font-black uppercase italic mb-6">Architect Your Vision</h3>
-        <p class="text-xl text-slate-400 mb-10">Use virtual optics prompts to control every pixel of your production.</p>
-        <button onclick="window.location.href='/#pricing'" class="bg-indigo-600 text-white px-12 py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all">Get the License</button>
-      </div>
+      ${CTA_CONTENT}
     `
   },
   {
     id: "p6",
     slug: "dna-negativo-a-importancia-da-exclusao",
     keyword: "negative prompt extraction",
-    title: "Negative DNA: The Power of Negative Prompt Extraction",
-    seoTitle: "How to use Negative Prompt Extraction for High-Fidelity Results",
-    metaDesc: "Master negative prompt extraction. Learn to filter out AI artifacts and aesthetic noise for professional results.",
+    title: "Negative DNA: Why What You EXCLUDE Defines Your Quality",
+    seoTitle: "Negative Prompt Extraction Guide | Clean AI Visuals Protocol",
+    metaDesc: "Master negative prompt extraction. Learn to filter out AI artifacts, noise, and generic aesthetics effectively.",
     category: "Strategy",
-    readTime: "95 min",
+    readTime: "90 min",
     content: `
-      <p>What you exclude is as important as what you include. <strong>Negative prompt extraction</strong> is the secret weapon of elite prompt engineers who need "clean" results for commercial work.</p>
+      <p>A prompt is a set of instructions. A negative prompt is a set of boundaries. <strong>Negative prompt extraction</strong> is the process of identifying what makes an image "look AI" and systematically excluding it.</p>
 
-      <h2>Filtering AI Noise</h2>
-      <p>Through <strong>negative prompt extraction</strong>, we remove the "plastic" skin textures, "extra limbs," and "uncanny valley" reflections that ruin most AI images. We identify what is *not* present in a high-end reference video and encode those exclusions into your DNA sequence.</p>
+      <h2>Filtering the Latent Noise</h2>
+      <p>Through <strong>negative prompt extraction</strong>, we remove "chromatic noise," "low-resolution textures," and "mangled geometry." But we go deeper: we remove aesthetic cliches. If you want a raw documentary look, your <strong>negative prompt extraction</strong> should exclude "cinematic lighting" and "perfect symmetry."</p>
 
-      <h2>Targeted Exclusion Zones</h2>
-      <p>Different engines (MJ vs Sora) have different failure modes. Our <strong>negative prompt extraction</strong> updates dynamically to handle the specific weaknesses of each model, ensuring your output stays within the professional manifold.</p>
-
-      <div class="cta-box bg-indigo-600/10 border border-indigo-500/30 p-12 rounded-[3rem] text-center my-16">
-        <h3 class="text-4xl font-black uppercase italic mb-6">Clean Your Visual DNA</h3>
-        <p class="text-xl text-slate-400 mb-10">Stop wasting credits on mangled results. Start using negative prompt extraction.</p>
-        <button onclick="window.location.href='/#pricing'" class="bg-indigo-600 text-white px-12 py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all">Join the Elite</button>
-      </div>
+      ${CTA_CONTENT}
     `
   },
   {
     id: "p7",
     slug: "kit-social-viral-automacao",
     keyword: "viral video metadata",
-    title: "Viral Video Metadata: Converting DNA into Attention",
-    seoTitle: "Viral Video Metadata Extraction | V-Reverse Pro Marketing",
-    metaDesc: "How to generate viral video metadata from AI DNA. Hooks, captions, and tags that win the algorithm.",
+    title: "Viral Video Metadata: Converting Visual DNA into Views",
+    seoTitle: "Viral Video Metadata Extraction | Attention Engineering 2025",
+    metaDesc: "Turn your technical prompt extractions into a complete viral kit. Hooks, captions, and tags based on visual DNA.",
     category: "Marketing",
-    readTime: "90 min",
+    readTime: "85 min",
     content: `
-      <p>Creating a masterpiece is only 50% of the job. To reach your audience, you need high-fidelity <strong>viral video metadata</strong>. We use visual DNA to generate hooks that stop the scroll.</p>
+      <p>A masterpiece with zero views is a tragedy. To avoid this, V-Reverse Pro converts your technical prompt into <strong>viral video metadata</strong>. We use the emotional frequency of the visual to generate hooks that stop the scroll.</p>
 
       <h2>The Hook Protocol</h2>
-      <p>Based on the emotional resonance of the visual DNA, we generate <strong>viral video metadata</strong> that includes psychological hooks. "The future of [Subject] just leaked..." or "3 secrets of this [Style] visual." These are tested against current platform algorithms.</p>
+      <p>Based on the deconstructed DNA, we identify the "WOW" factor. Is it the lighting? The subject? The <strong>viral video metadata</strong> focuses on that. "3 keys to this cinematic lighting..." or "The future of [Subject] visual DNA."</p>
 
-      <h2>Contextual SEO</h2>
-      <p>Our <strong>viral video metadata</strong> includes specific hashtags and descriptions that use technical jargon to establish you as an authority in the AI space, attracting high-ticket clients instead of casual hobbyists.</p>
-
-      <div class="cta-box bg-indigo-600/10 border border-indigo-500/30 p-12 rounded-[3rem] text-center my-16">
-        <h3 class="text-4xl font-black uppercase italic mb-6">Go Viral Tonight</h3>
-        <p class="text-xl text-slate-400 mb-10">Use viral video metadata to turn your art into a business.</p>
-        <button onclick="window.location.href='/#pricing'" class="bg-indigo-600 text-white px-12 py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all">Start Now</button>
-      </div>
+      ${CTA_CONTENT}
     `
   },
   {
     id: "p8",
     slug: "roi-da-engenharia-de-prompt",
     keyword: "prompt engineering business",
-    title: "Scaling the Prompt Engineering Business in 2025",
-    seoTitle: "The ROI of a Prompt Engineering Business | V-Reverse Pro Business",
-    metaDesc: "Why the prompt engineering business is the most profitable agency model of 2025. Learn the ROI of high-fidelity tools.",
+    title: "ROI: The Business of High-Fidelity Prompt Engineering",
+    seoTitle: "ROI of Prompt Engineering Business | Agency Scaling Guide",
+    metaDesc: "Why investing in a prompt engineering business protocol is the most profitable move for agencies in 2025.",
     category: "Business",
-    readTime: "85 min",
+    readTime: "80 min",
     content: `
-      <p>The <strong>prompt engineering business</strong> is evolving into a high-margin industrial sector. Efficiency is the only thing that matters. V-Reverse Pro is the industrial terminal for this new economy.</p>
+      <p>In the digital economy, efficiency is the only barrier to scale. The <strong>prompt engineering business</strong> model is based on reducing the iteration cycle. V-Reverse Pro is the industrial terminal for this new economy.</p>
 
       <h2>The Cost of Low Fidelity</h2>
-      <p>In the <strong>prompt engineering business</strong>, time is your raw material. Every "test" generation costs money. By using V-Reverse Pro to <strong>extract prompt from video</strong>, you reduce your iteration cycle by 90%, effectively doubling your margins overnight.</p>
+      <p>Low-quality prompts lead to "AI-trash" output that requires manual cleanup. High-fidelity prompts, extracted from world-class references, save hundreds of hours of retouching. The ROI of your <strong>prompt engineering business</strong> depends on starting at 95% quality.</p>
 
-      <h2>Standardization for Agencies</h2>
-      <p>Scaling a <strong>prompt engineering business</strong> requires standardization. Use our Master DNA sequences to ensure every artist in your team produces the same elite quality, regardless of their individual skill level.</p>
-
-      <div class="cta-box bg-indigo-600/10 border border-indigo-500/30 p-12 rounded-[3rem] text-center my-16">
-        <h3 class="text-4xl font-black uppercase italic mb-6">Scale Your Business Today</h3>
-        <p class="text-xl text-slate-400 mb-10">Invest in the professional standard of prompt engineering business tools.</p>
-        <button onclick="window.location.href='/#pricing'" class="bg-indigo-600 text-white px-12 py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all">Unlock Professional Access</button>
-      </div>
+      ${CTA_CONTENT}
     `
   }
 ];
@@ -401,7 +343,6 @@ const App: React.FC = () => {
   const [status, setStatus] = useState<AnalysisStatus>(AnalysisStatus.IDLE);
   const [result, setResult] = useState<VideoPromptResult | null>(null);
   const [targetModel, setTargetModel] = useState('midjourney');
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [videoUrl, setVideoUrl] = useState('');
   const [config, setConfig] = useState<WorkstationConfig>({
     fidelity: 95,
@@ -714,35 +655,32 @@ const App: React.FC = () => {
       <section id="pricing" className="py-40 border-t border-white/5 px-4">
         <div className="text-center mb-24">
           <h2 className="text-6xl md:text-8xl font-black uppercase italic tracking-tighter">{t.licenseTitle}</h2>
-          <p className="text-slate-500 font-black uppercase tracking-[0.4em] text-xs">Choose Your Clearance Level</p>
+          <p className="text-slate-500 font-black uppercase tracking-[0.4em] text-xs">Architect Clearance Levels</p>
         </div>
         
-        <div className="max-w-7xl mx-auto">
-          {/* Tabela Comparativa Detalhada */}
-          <div className="overflow-x-auto mb-20">
-            <table className="w-full border-collapse bg-white/[0.01] border border-white/10 rounded-3xl overflow-hidden shadow-premium">
+        <div className="max-w-7xl mx-auto space-y-20">
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse bg-white/[0.01] border border-white/10 rounded-[2rem] overflow-hidden shadow-2xl">
               <thead>
-                <tr className="border-b border-white/10 bg-white/[0.03]">
-                  <th className="p-8 text-left text-[10px] font-black uppercase tracking-widest">Capabilities</th>
-                  <th className="p-8 text-center text-[10px] font-black uppercase tracking-widest text-slate-400">Standard Access</th>
-                  <th className="p-8 text-center text-[10px] font-black uppercase tracking-widest text-indigo-400 bg-indigo-600/5">Elite Lifetime</th>
+                <tr className="border-b border-white/10 bg-white/[0.03] text-[10px] font-black uppercase tracking-widest text-slate-500">
+                  <th className="p-8 text-left">Capabilities</th>
+                  <th className="p-8 text-center">Standard</th>
+                  <th className="p-8 text-center text-indigo-400 bg-indigo-600/5">Elite Lifetime</th>
                 </tr>
               </thead>
               <tbody className="text-xs font-semibold text-slate-400">
                 {[
-                  { feature: "Daily Extraction Limit", std: "5 per day", eli: "Unlimited Neural Power" },
-                  { feature: "Target AI Engines", std: "MJ v6.1 & Runway", eli: "All Engines (Sora, Veo, Kling, etc.)" },
-                  { feature: "DNA Fidelity Level", std: "90% Max Fidelity", eli: "100% Technical Precision" },
-                  { feature: "Batch Processing", std: "Disabled", eli: "Enabled (Architect Priority)" },
-                  { feature: "4K Thumbnail Blueprint", std: "v1.0 Basic", eli: "v5.8 High-Conversion Pro" },
-                  { feature: "Support Response", std: "48h Ticket", eli: "VIP Instant 1h Support" },
-                  { feature: "Training Updates", std: "Paid Add-on", eli: "Included Forever" },
-                  { feature: "API Access", std: "Not Included", eli: "Early Access Beta" }
-                ].map((row, idx) => (
-                  <tr key={idx} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-                    <td className="p-6 md:p-8 border-r border-white/5">{row.feature}</td>
-                    <td className="p-6 md:p-8 text-center border-r border-white/5">{row.std}</td>
-                    <td className="p-6 md:p-8 text-center text-white bg-indigo-600/5">{row.eli}</td>
+                  { f: "Daily Extraction Volume", s: "5 per day", e: "Unlimited" },
+                  { f: "Neural Fidelity Level", s: "90% Max", e: "100% Precision" },
+                  { f: "Model Support", s: "Midjourney, Runway", e: "All Engines (Sora, Veo, Kling, etc)" },
+                  { f: "Batch Processing", s: "Not Available", e: "Priority Terminal" },
+                  { f: "Support Tier", s: "Standard Email", e: "VIP Architect Support (1h)" },
+                  { f: "Future Core Updates", s: "Paid Upgrades", e: "Included Forever" }
+                ].map((row, i) => (
+                  <tr key={i} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                    <td className="p-6 md:p-8">{row.f}</td>
+                    <td className="p-6 md:p-8 text-center">{row.s}</td>
+                    <td className="p-6 md:p-8 text-center text-white bg-indigo-600/5">{row.e}</td>
                   </tr>
                 ))}
               </tbody>
@@ -750,32 +688,27 @@ const App: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-            {/* Standard Card */}
-            <div className="bg-white/[0.01] border border-white/10 rounded-[4rem] p-16 flex flex-col hover:border-indigo-500 transition-all group shadow-2xl relative">
-               <span className="text-indigo-400 font-black uppercase text-[10px] tracking-widest mb-4">Standard Subscription</span>
+            <div className="bg-white/[0.01] border border-white/10 rounded-[4rem] p-16 flex flex-col hover:border-indigo-500 transition-all group shadow-2xl">
+               <span className="text-indigo-400 font-black uppercase text-[10px] tracking-widest mb-4">Standard Clearance</span>
                <h3 className="text-6xl font-black uppercase italic mb-8">R$ 97<span className="text-lg text-slate-600 font-bold">/month</span></h3>
-               <p className="text-slate-500 text-sm mb-12 flex-grow">Designed for creators who need high-fidelity prompt DNA on a consistent basis for individual projects.</p>
-               <ul className="space-y-4 mb-12 text-xs font-bold text-slate-500">
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-indigo-600 rounded-full"></div> 150 Extractions per Month</li>
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-indigo-600 rounded-full"></div> Access to V-Reverse Terminal</li>
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 bg-indigo-600 rounded-full"></div> Viral Metadata Generator</li>
+               <ul className="space-y-4 mb-12 flex-grow">
+                 {[ "50 Extractions per Month", "Standard Social Viral Kit", "Midjourney Optimized DNA", "Direct Terminal Access" ].map(li => (
+                   <li key={li} className="flex items-center gap-3 text-sm font-semibold text-slate-400"><div className="w-1.5 h-1.5 bg-indigo-500 rounded-full" /> {li}</li>
+                 ))}
                </ul>
-               <a href={HOTMART_BASIC} className="block bg-white text-black text-center py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-600 hover:text-white transition-all shadow-premium transform active:scale-95">{t.subscribeNow}</a>
+               <a href={HOTMART_BASIC} className="block bg-white text-black text-center py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-600 hover:text-white transition-all transform active:scale-95">{t.subscribeNow}</a>
             </div>
 
-            {/* Elite Card */}
-            <div className="bg-indigo-600/5 border-2 border-indigo-500 rounded-[4rem] p-16 flex flex-col relative overflow-hidden group shadow-[0_0_120px_-20px_rgba(79,70,229,0.3)]">
-               <div className="absolute top-0 right-0 bg-indigo-500 text-white px-10 py-3 font-black uppercase text-[10px] tracking-widest animate-pulse">{t.bestValue}</div>
-               <span className="text-indigo-400 font-black uppercase text-[10px] tracking-widest mb-4">Elite Lifetime License</span>
+            <div className="bg-indigo-600/5 border-2 border-indigo-500 rounded-[4rem] p-16 flex flex-col relative overflow-hidden group shadow-[0_0_80px_-15px_rgba(79,70,229,0.3)]">
+               <div className="absolute top-0 right-0 bg-indigo-500 text-white px-10 py-3 font-black uppercase text-[10px] tracking-widest">{t.bestValue}</div>
+               <span className="text-indigo-400 font-black uppercase text-[10px] tracking-widest mb-4">Elite Architect License</span>
                <h3 className="text-6xl font-black uppercase italic mb-8">R$ 297<span className="text-lg text-indigo-400 font-bold">/lifetime</span></h3>
-               <p className="text-slate-300 text-sm mb-12 flex-grow">The ultimate architect clearance. Unlimited access to our most powerful neural engines and priority support for life.</p>
-               <ul className="space-y-4 mb-12 text-xs font-bold text-slate-200">
-                  <li className="flex items-center gap-2"><IconSparkles className="w-4 h-4 text-indigo-400" /> UNLIMITED EXTRACTIONS</li>
-                  <li className="flex items-center gap-2"><IconSparkles className="w-4 h-4 text-indigo-400" /> ALL FUTURE ENGINES INCLUDED</li>
-                  <li className="flex items-center gap-2"><IconSparkles className="w-4 h-4 text-indigo-400" /> ARCHITECT INNER CIRCLE ACCESS</li>
-                  <li className="flex items-center gap-2"><IconSparkles className="w-4 h-4 text-indigo-400" /> PRIORITY VIP SUPPORT</li>
+               <ul className="space-y-4 mb-12 flex-grow">
+                 {[ "UNLIMITED Extractions", "Full Engine Suite (Sora, Veo)", "4K Thumbnail Blueprint v5.8", "VIP Support & Private Circle", "Early Access to New Protocols" ].map(li => (
+                   <li key={li} className="flex items-center gap-3 text-sm font-bold text-white/90"><IconSparkles className="w-4 h-4 text-indigo-400" /> {li}</li>
+                 ))}
                </ul>
-               <a href={HOTMART_ELITE} className="block bg-indigo-600 text-white text-center py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all shadow-premium transform active:scale-95">{t.secureAccess}</a>
+               <a href={HOTMART_ELITE} className="block bg-indigo-600 text-white text-center py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all transform active:scale-95">{t.secureAccess}</a>
             </div>
           </div>
         </div>
@@ -808,7 +741,7 @@ const App: React.FC = () => {
               <span>•</span>
               <span>{activePost.readTime}</span>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: activePost.content }} className="prose prose-invert max-w-none mb-40" />
+            <div dangerouslySetInnerHTML={{ __html: activePost.content }} className="prose prose-invert max-w-none" />
           </article>
       </div>
     );
