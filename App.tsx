@@ -152,11 +152,7 @@ const POSTS: BlogPost[] = [
     metaDesc: "The definitive guide to extract prompt from video. Master technical deconstruction for Midjourney and Sora.",
     category: "Technical",
     readTime: "60 min",
-    content: `
-      <p>In the highly competitive landscape of generative AI, the ability to <strong>extract prompt from video</strong> has evolved from a convenience to an essential technical requirement.</p>
-      <h2>The Science of Visual DNA Extraction</h2>
-      <p>When you decide to <strong>extract prompt from video</strong>, you are performing reverse surgery on neural weights. V-Reverse Pro analyzes light Kelvin temperature and spectral dispersion.</p>
-    `
+    content: `<p>In the highly competitive landscape of generative AI, the ability to <strong>extract prompt from video</strong> has evolved from a convenience to an essential technical requirement.</p><h2>The Science of Visual DNA Extraction</h2><p>When you decide to <strong>extract prompt from video</strong>, you are performing reverse surgery on neural weights. V-Reverse Pro analyzes light Kelvin temperature and spectral dispersion.</p>`
   },
   {
     id: "p2",
@@ -167,9 +163,7 @@ const POSTS: BlogPost[] = [
     metaDesc: "Discover how to extract visual essence for Midjourney with absolute fidelity.",
     category: "Tutorial",
     readTime: "45 min",
-    content: `
-      <p>Midjourney v6.1 introduced new aesthetic comprehension. To leverage this, you must <strong>extract prompt from video</strong> focusing on PBR lighting tokens.</p>
-    `
+    content: `<p>Midjourney v6.1 introduced new aesthetic comprehension. To leverage this, you must <strong>extract prompt from video</strong> focusing on PBR lighting tokens.</p>`
   },
   {
     id: "p3",
@@ -277,20 +271,44 @@ const App: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const t = TRANSLATIONS[lang] || TRANSLATIONS.en;
 
+  // SPA Path Routing Logic
+  const handleRouting = () => {
+    const path = window.location.pathname.replace(/^\//, '');
+    const post = POSTS.find(p => p.slug === path);
+    
+    if (post) {
+      setActivePost(post);
+      setView('post');
+      document.title = `${post.seoTitle} | V-Reverse Pro`;
+      // Atualizar meta description dinamicamente para SEO
+      document.querySelector('meta[name="description"]')?.setAttribute('content', post.metaDesc);
+      window.scrollTo(0, 0);
+    } else {
+      setView('home');
+      setActivePost(null);
+      document.title = "Extract Prompt from Video | V-Reverse Pro Architect Workstation";
+      document.querySelector('meta[name="description"]')?.setAttribute('content', "The professional standard to extract prompt from video. High-fidelity DNA deconstruction for AI video models.");
+    }
+  };
+
   useEffect(() => {
     const savedEmail = localStorage.getItem('v-reverse-email');
     if (savedEmail) validateSub(savedEmail);
     
-    const handleHash = () => {
-      const hash = window.location.hash.replace('#', '');
-      const post = POSTS.find(p => p.slug === hash);
-      if (post) { setActivePost(post); setView('post'); window.scrollTo(0, 0); } 
-      else { setView('home'); setActivePost(null); }
-    };
-    window.addEventListener('hashchange', handleHash);
-    handleHash();
-    return () => window.removeEventListener('hashchange', handleHash);
+    // Initial routing
+    handleRouting();
+
+    // Listen to browser navigation (back/forward)
+    window.addEventListener('popstate', handleRouting);
+    return () => window.removeEventListener('popstate', handleRouting);
   }, []);
+
+  // Helper function to navigate without full page reload
+  const navigateTo = (path: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    window.history.pushState({}, '', path);
+    handleRouting();
+  };
 
   const validateSub = async (email: string) => {
     setLoginLoading(true);
@@ -419,7 +437,6 @@ const App: React.FC = () => {
 
       {status === AnalysisStatus.COMPLETED && result && (
         <div className="space-y-16 animate-in fade-in slide-in-from-bottom-10 duration-1000">
-          {/* Master Prompt Section */}
           <div className="bg-white/[0.02] border border-white/10 p-8 md:p-16 rounded-[3rem] space-y-10 shadow-premium">
             <div className="flex flex-col sm:flex-row justify-between items-center border-b border-white/5 pb-8 gap-4">
               <h2 className="text-4xl font-black uppercase italic tracking-tighter">{t.masterDNA}</h2>
@@ -433,7 +450,6 @@ const App: React.FC = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            {/* Social Kit Section */}
             <div className="bg-white/[0.02] border border-white/10 p-10 rounded-[2.5rem] space-y-8">
               <h2 className="text-2xl font-black uppercase italic text-indigo-400 tracking-tighter">{t.socialKitTitle}</h2>
               <div className="space-y-6">
@@ -448,7 +464,6 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* Thumbnail Blueprint Section */}
             <div className="bg-white/[0.02] border border-white/10 p-10 rounded-[2.5rem] space-y-8">
               <h2 className="text-2xl font-black uppercase italic text-orange-400 tracking-tighter">{t.thumbnailTitle}</h2>
               <div className="space-y-6">
@@ -465,7 +480,6 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Viral Variations Section */}
           <div className="bg-white/[0.02] border border-white/10 p-10 rounded-[3rem] space-y-10">
             <h2 className="text-3xl font-black uppercase italic tracking-tighter text-center">{t.variationsTitle}</h2>
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -487,7 +501,6 @@ const App: React.FC = () => {
           </div>
 
           <div className="grid lg:grid-cols-1 gap-8">
-            {/* Negative DNA Section */}
             <div className="bg-white/[0.02] border border-white/10 p-10 rounded-[2.5rem] space-y-8">
               <h2 className="text-2xl font-black uppercase italic text-pink-500 tracking-tighter">{t.negativePromptTitle}</h2>
               <div className="bg-black/40 p-8 rounded-2xl border border-white/5 text-xs italic opacity-70 leading-relaxed font-mono min-h-[150px]">
@@ -520,7 +533,6 @@ const App: React.FC = () => {
          </div>
       </section>
 
-      {/* Features Section */}
       <section className="py-40 px-4 max-w-7xl mx-auto border-t border-white/5">
         <div className="text-center mb-32">
           <h2 className="text-5xl md:text-7xl font-black uppercase italic tracking-tighter mb-6">{t.featuresTitle}</h2>
@@ -529,7 +541,6 @@ const App: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {FEATURES_LIST.map((f, i) => (
             <div key={i} className="bg-white/[0.02] border border-white/5 p-12 rounded-[3rem] hover:border-indigo-500 transition-all group relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="w-14 h-14 bg-indigo-600/10 rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
                 <IconSparkles className="w-7 h-7 text-indigo-500" />
               </div>
@@ -540,25 +551,19 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Knowledge Base Section */}
       <section id="kb" className="py-40 bg-white/[0.01] border-y border-white/5 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-32">
-            <div className="space-y-6">
-              <h2 className="text-5xl md:text-8xl font-black uppercase italic tracking-tighter">{t.kbTitle}</h2>
-              <p className="text-slate-400 font-semibold text-lg max-w-2xl leading-relaxed italic opacity-70">{t.kbDesc}</p>
-            </div>
+          <div className="mb-32">
+            <h2 className="text-5xl md:text-8xl font-black uppercase italic tracking-tighter">{t.kbTitle}</h2>
+            <p className="text-slate-400 font-semibold text-lg max-w-2xl mt-6 italic opacity-70">{t.kbDesc}</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {POSTS.map(post => (
-              <a key={post.id} href={`#${post.slug}`} className="group bg-white/[0.02] border border-white/5 p-10 rounded-[2.5rem] hover:bg-indigo-600/[0.05] hover:border-indigo-500 transition-all flex flex-col justify-between">
-                <div>
-                  <div className="flex justify-between items-center mb-8">
-                    <span className="bg-indigo-600/10 px-4 py-2 rounded-full text-[9px] font-black uppercase text-indigo-400 tracking-widest">{post.category}</span>
-                    <span className="text-[9px] font-bold text-slate-600 uppercase">{post.readTime}</span>
-                  </div>
-                  <h3 className="text-2xl font-black uppercase italic tracking-tighter mb-8 group-hover:text-indigo-400 transition-colors leading-[1.1]">{post.title}</h3>
+              <a key={post.id} href={`/${post.slug}`} onClick={(e) => navigateTo(`/${post.slug}`, e)} className="group bg-white/[0.02] border border-white/5 p-10 rounded-[2.5rem] hover:bg-indigo-600/[0.05] hover:border-indigo-500 transition-all">
+                <div className="flex justify-between mb-8">
+                  <span className="bg-indigo-600/10 px-4 py-2 rounded-full text-[9px] font-black uppercase text-indigo-400 tracking-widest">{post.category}</span>
                 </div>
+                <h3 className="text-2xl font-black uppercase italic tracking-tighter mb-8 group-hover:text-indigo-400 transition-colors leading-[1.1]">{post.title}</h3>
                 <div className="flex items-center gap-2 text-indigo-500 font-black uppercase text-[10px] tracking-widest pt-4 border-t border-white/5">
                   Analyze Protocol <IconChevron className="w-4 h-4 -rotate-90" />
                 </div>
@@ -568,73 +573,31 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-40 px-4 max-w-5xl mx-auto">
-        <h2 className="text-6xl font-black uppercase italic tracking-tighter mb-24 text-center">{t.faqTitle}</h2>
-        <div className="space-y-6">
-          {FAQ_ITEMS.map((item, i) => (
-            <div key={i} className="bg-white/[0.01] border border-white/5 rounded-[2rem] overflow-hidden group">
-              <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex justify-between items-center p-10 text-left transition-all">
-                <span className="text-xl md:text-2xl font-black uppercase italic tracking-tight group-hover:text-indigo-400 transition-colors pr-8">{item.q}</span>
-                <div className={`p-3 rounded-full border border-white/10 transition-all ${openFaq === i ? 'bg-indigo-600 border-indigo-500 rotate-180' : ''}`}>
-                  <IconChevron className="w-6 h-6" />
-                </div>
-              </button>
-              {openFaq === i && (
-                <div className="px-10 pb-10 text-slate-400 text-lg font-semibold leading-relaxed italic animate-in slide-in-from-top-4 duration-500">
-                  {item.a}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section id="pricing" className="py-40 border-t border-white/5 space-y-24 bg-gradient-to-b from-transparent to-indigo-950/20 px-4">
-        <div className="text-center space-y-6">
+      <section id="pricing" className="py-40 border-t border-white/5 px-4">
+        <div className="text-center mb-24">
           <h2 className="text-6xl md:text-8xl font-black uppercase italic tracking-tighter">{t.licenseTitle}</h2>
-          <p className="text-slate-500 font-black uppercase tracking-[0.5em] text-[10px]">Secure Your Neural Gateway</p>
         </div>
         <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-          <div className="bg-white/[0.01] border border-white/10 rounded-[4rem] p-16 flex flex-col hover:border-indigo-500/50 transition-all group">
-             <span className="text-indigo-400 font-black uppercase text-[10px] tracking-widest mb-4">Entry Level</span>
-             <h3 className="text-6xl font-black uppercase italic mb-8">R$ 97<span className="text-lg text-slate-600 tracking-normal font-bold lowercase">{t.monthly}</span></h3>
-             <ul className="space-y-4 mb-12 flex-grow">
-               {["50 Extractions/mo", "Midjourney & Sora Ready", "Basic Social Kit", "Email Support"].map(item => (
-                 <li key={item} className="flex items-center gap-3 text-sm font-semibold text-slate-400"><IconSparkles className="w-4 h-4 text-indigo-500" /> {item}</li>
-               ))}
-             </ul>
-             <a href={HOTMART_BASIC} className="block bg-white text-black text-center py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-600 hover:text-white transition-all shadow-xl group-hover:scale-105">{t.subscribeNow}</a>
+          <div className="bg-white/[0.01] border border-white/10 rounded-[4rem] p-16 flex flex-col hover:border-indigo-500 transition-all">
+             <span className="text-indigo-400 font-black uppercase text-[10px] tracking-widest mb-4">Standard</span>
+             <h3 className="text-6xl font-black uppercase italic mb-8">R$ 97<span className="text-lg text-slate-600 font-bold">/month</span></h3>
+             <a href={HOTMART_BASIC} className="block bg-white text-black text-center py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-600 hover:text-white transition-all">{t.subscribeNow}</a>
           </div>
-          <div className="bg-indigo-600/5 border-2 border-indigo-500 rounded-[4rem] p-16 flex flex-col relative overflow-hidden shadow-premium group">
-             <div className="absolute -top-4 -right-4 bg-indigo-500 text-white px-10 py-8 rotate-45 font-black uppercase text-[10px] tracking-widest">{t.bestValue}</div>
-             <span className="text-indigo-400 font-black uppercase text-[10px] tracking-widest mb-4">Unlimited Elite</span>
-             <h3 className="text-6xl font-black uppercase italic mb-8">R$ 297<span className="text-lg text-indigo-400/50 tracking-normal font-bold lowercase">{t.lifetime}</span></h3>
-             <ul className="space-y-4 mb-12 flex-grow">
-               {["Unlimited DNA Extraction", "All Current & Future Engines", "Advanced Viral Social Kit", "VIP Architect Community", "Lifetime Support"].map(item => (
-                 <li key={item} className="flex items-center gap-3 text-sm font-semibold text-white/80"><IconSparkles className="w-4 h-4 text-indigo-400" /> {item}</li>
-               ))}
-             </ul>
-             <a href={HOTMART_ELITE} className="block bg-indigo-600 text-white text-center py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all shadow-premium group-hover:scale-105">{t.secureAccess}</a>
+          <div className="bg-indigo-600/5 border-2 border-indigo-500 rounded-[4rem] p-16 flex flex-col relative overflow-hidden">
+             <div className="absolute top-0 right-0 bg-indigo-500 text-white px-8 py-2 font-black uppercase text-[10px] tracking-widest">{t.bestValue}</div>
+             <span className="text-indigo-400 font-black uppercase text-[10px] tracking-widest mb-4">Elite Lifetime</span>
+             <h3 className="text-6xl font-black uppercase italic mb-8">R$ 297<span className="text-lg text-indigo-400 font-bold">/lifetime</span></h3>
+             <a href={HOTMART_ELITE} className="block bg-indigo-600 text-white text-center py-6 rounded-2xl font-black uppercase text-sm tracking-widest hover:bg-indigo-500 transition-all">{t.secureAccess}</a>
           </div>
         </div>
       </section>
 
       <footer className="py-32 px-4 border-t border-white/5 text-center bg-black">
-        <div className="max-w-7xl mx-auto space-y-12">
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center gap-3 mb-12">
             <IconSparkles className="w-6 h-6 text-indigo-500" />
             <span className="font-black tracking-tighter text-2xl uppercase italic">V-REVERSE <span className="text-indigo-500">PRO</span></span>
           </div>
-          <nav className="flex flex-wrap justify-center gap-8 text-[10px] font-black uppercase tracking-widest opacity-40">
-            <a href="#kb" className="hover:text-white">Knowledge Base</a>
-            <a href="#pricing" className="hover:text-white">Licensing</a>
-            <a href="#" className="hover:text-white">Privacy</a>
-            <a href="#" className="hover:text-white">Terms</a>
-          </nav>
-          <p className="text-[10px] font-black uppercase tracking-[0.6em] text-slate-700">© 2025 V-Reverse Intelligence Protocol. All Rights Reserved to Elite Architects.</p>
-        </div>
+          <p className="text-[10px] font-black uppercase tracking-[0.6em] text-slate-700">© 2025 V-Reverse Protocol. All Rights Reserved.</p>
       </footer>
     </div>
   );
@@ -642,24 +605,14 @@ const App: React.FC = () => {
   const renderPost = () => {
     if (!activePost) return null;
     return (
-      <div className="animate-in slide-in-from-bottom-10 duration-700 pt-40 pb-60">
-        <div className="max-w-5xl mx-auto px-6">
-          <button onClick={() => { window.location.hash = ''; }} className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-indigo-500 mb-16 hover:text-white transition-all group">
-            <div className="p-3 rounded-full border border-indigo-500/20 group-hover:bg-indigo-500 group-hover:text-white transition-all">
-              <IconChevron className="w-5 h-5 rotate-90" />
-            </div>
-            {t.back}
+      <div className="animate-in slide-in-from-bottom-10 duration-700 pt-40 pb-60 max-w-5xl mx-auto px-6">
+          <button onClick={(e) => navigateTo('/', e)} className="inline-flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-indigo-500 mb-16 hover:text-white transition-all">
+            <IconChevron className="w-5 h-5 rotate-90" /> {t.back}
           </button>
           <article className="post-body">
-            <h1 className={activePost.keyword === "extract prompt from video" ? "gradient-text" : ""}>{activePost.title}</h1>
-            <div className="flex items-center gap-4 mb-16 text-[10px] font-black uppercase tracking-widest text-slate-600">
-              <span className="bg-white/5 px-4 py-2 rounded-full">{activePost.category}</span>
-              <span>•</span>
-              <span>{activePost.readTime} reading time</span>
-            </div>
+            <h1 className="gradient-text">{activePost.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: activePost.content }} className="prose prose-invert max-w-none" />
           </article>
-        </div>
       </div>
     );
   };
@@ -668,60 +621,51 @@ const App: React.FC = () => {
     <div className="min-h-screen selection:bg-indigo-500/50">
       <nav className="fixed top-0 w-full z-[150] glass border-b border-white/5 px-6 md:px-16 py-6">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <a href="#" className="flex items-center gap-3 group" onClick={(e) => { e.preventDefault(); window.location.hash = ''; }}>
-            <IconSparkles className="w-6 h-6 text-indigo-500 group-hover:scale-125 transition-transform" />
+          <a href="/" className="flex items-center gap-3" onClick={(e) => navigateTo('/', e)}>
+            <IconSparkles className="w-6 h-6 text-indigo-500" />
             <span className="font-black tracking-tighter text-xl md:text-2xl uppercase italic">V-REVERSE <span className="text-indigo-500">PRO</span></span>
           </a>
           <div className="flex items-center gap-6">
             <div className="relative group">
-              <button className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2.5 rounded-xl text-[10px] font-black tracking-widest uppercase hover:bg-white/10 transition-all">
+              <button className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest">
                 {LANGUAGES.find(l => l.code === lang)?.flag} <span className="hidden sm:inline">{LANGUAGES.find(l => l.code === lang)?.name}</span>
               </button>
-              <div className="absolute top-full right-0 mt-3 w-48 bg-[#0f172a] border border-white/10 rounded-2xl overflow-hidden hidden group-hover:block z-[200] shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+              <div className="absolute top-full right-0 mt-3 w-48 bg-[#0f172a] border border-white/10 rounded-2xl overflow-hidden hidden group-hover:block z-[200]">
                 {LANGUAGES.map(l => (
-                  <button key={l.code} onClick={() => setLang(l.code)} className={`w-full px-6 py-4 text-left text-[10px] font-black uppercase tracking-widest flex items-center gap-4 hover:bg-indigo-600 hover:text-white transition-all ${lang === l.code ? 'bg-white/5 text-indigo-400' : ''}`}>
-                    <span className="text-base">{l.flag}</span> {l.name}
+                  <button key={l.code} onClick={() => setLang(l.code)} className="w-full px-6 py-4 text-left text-[10px] font-black uppercase flex items-center gap-4 hover:bg-indigo-600 hover:text-white transition-all">
+                    <span>{l.flag}</span> {l.name}
                   </button>
                 ))}
               </div>
             </div>
-            {!isSubscriber && <button onClick={() => setShowLoginModal(true)} className="bg-indigo-600 px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg active:scale-95">{t.portal}</button>}
+            {!isSubscriber && <button onClick={() => setShowLoginModal(true)} className="bg-indigo-600 px-6 py-2.5 rounded-xl text-[10px] font-black uppercase">{t.portal}</button>}
             {isSubscriber && (
-              <button onClick={() => { setIsSubscriber(false); localStorage.removeItem('v-reverse-email'); window.location.hash = ''; }} className="bg-white/5 border border-white/10 px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest opacity-60 hover:opacity-100 hover:bg-red-600/20 hover:border-red-600/50 transition-all">Logout</button>
+              <button onClick={() => { setIsSubscriber(false); localStorage.removeItem('v-reverse-email'); navigateTo('/'); }} className="bg-white/5 border border-white/10 px-6 py-2.5 rounded-xl text-[10px] font-black uppercase opacity-60">Logout</button>
             )}
           </div>
         </div>
       </nav>
-
-      <main>
-        {view === 'home' ? (isSubscriber ? renderDashboard() : renderLanding()) : renderPost()}
-      </main>
+      <main>{view === 'home' ? (isSubscriber ? renderDashboard() : renderLanding()) : renderPost()}</main>
 
       {showLoginModal && (
-        <div className="fixed inset-0 z-[300] flex items-center justify-center p-6 bg-black/95 backdrop-blur-3xl animate-in fade-in duration-500">
-          <div className="w-full max-w-md p-12 bg-[#0f172a] border border-white/10 rounded-[4rem] text-center space-y-10 shadow-premium">
-            <div className="w-20 h-20 bg-indigo-600/10 rounded-3xl flex items-center justify-center mx-auto">
-              <IconSparkles className="w-10 h-10 text-indigo-500" />
-            </div>
-            <div className="space-y-3">
-              <h2 className="text-4xl font-black uppercase tracking-tighter italic">{t.portalTitle}</h2>
-              <p className="text-slate-500 text-[10px] font-black uppercase tracking-widest">Access the Architect Workstation</p>
-            </div>
+        <div className="fixed inset-0 z-[300] flex items-center justify-center p-6 bg-black/95 backdrop-blur-3xl animate-in fade-in">
+          <div className="w-full max-w-md p-12 bg-[#0f172a] border border-white/10 rounded-[4rem] text-center space-y-10">
+            <h2 className="text-4xl font-black uppercase tracking-tighter italic">{t.portalTitle}</h2>
             <input 
               type="email" 
               placeholder="email@architect.com" 
               value={loginEmail} 
               onChange={e => setLoginEmail(e.target.value)} 
-              className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-center font-bold outline-none focus:border-indigo-500 transition-all text-lg placeholder:opacity-20" 
+              className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-center font-bold outline-none" 
             />
             <button 
               onClick={() => validateSub(loginEmail)} 
               disabled={loginLoading} 
-              className="w-full bg-indigo-600 py-6 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-indigo-500 transition-all shadow-xl active:scale-95 disabled:opacity-50"
+              className="w-full bg-indigo-600 py-6 rounded-2xl font-black uppercase text-xs"
             >
               {loginLoading ? t.verifying : t.unlockTerminal}
             </button>
-            <button onClick={() => setShowLoginModal(false)} className="text-[10px] font-black uppercase opacity-30 hover:opacity-100 transition-opacity tracking-widest">{t.return}</button>
+            <button onClick={() => setShowLoginModal(false)} className="text-[10px] font-black uppercase opacity-30">{t.return}</button>
           </div>
         </div>
       )}
