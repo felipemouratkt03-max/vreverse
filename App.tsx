@@ -134,7 +134,7 @@ const TRANSLATIONS: Record<string, any> = {
     extractFailed: "Falha na extração. Complexidade do frame excedida.",
     targetEngine: "Motor de Destino",
     parameters: "Parâmetros Técnicos",
-    fidelity: "Fidelity",
+    fidelity: "Fidelidade",
     licenseTitle: "Licenciamento de Acesso",
     faqTitle: "Perguntas Frequentes",
     featuresTitle: "Arquitetura do Sistema",
@@ -153,11 +153,9 @@ const POSTS: BlogPost[] = [
     category: "Technical",
     readTime: "60 min",
     content: `
-      <p>In the highly competitive landscape of generative AI, the ability to <strong>extract prompt from video</strong> has evolved from a convenience to an essential technical requirement for content architects.</p>
+      <p>In the highly competitive landscape of generative AI, the ability to <strong>extract prompt from video</strong> has evolved from a convenience to an essential technical requirement.</p>
       <h2>The Science of Visual DNA Extraction</h2>
-      <p>When you decide to <strong>extract prompt from video</strong>, you are performing reverse surgery on neural weights. V-Reverse Pro analyzes light Kelvin temperature, spectral dispersion, and specific lens configurations.</p>
-      <div class="code-block">// V-REVERSE CORE v5.8\nANALYSIS_MODE: MOLECULAR\nSAMPLING_RATE: 4K_DPI\nLENS_MAPPING: ENABLED</div>
-      <p>By mapping the precise optics used in the original video, we generate text that the AI understands as instructions for physical camera properties, not just general descriptions.</p>
+      <p>When you decide to <strong>extract prompt from video</strong>, you are performing reverse surgery on neural weights. V-Reverse Pro analyzes light Kelvin temperature and spectral dispersion.</p>
     `
   },
   {
@@ -166,12 +164,11 @@ const POSTS: BlogPost[] = [
     keyword: "extrair prompt midjourney",
     title: "Reverse Engineering for Midjourney v6.1",
     seoTitle: "How to Extract Prompts for Midjourney v6.1 | V-Reverse Pro",
-    metaDesc: "Discover how to extract visual essence for Midjourney with absolute fidelity using our workstation.",
+    metaDesc: "Discover how to extract visual essence for Midjourney with absolute fidelity.",
     category: "Tutorial",
     readTime: "45 min",
     content: `
-      <p>Midjourney v6.1 introduced new aesthetic comprehension levels. To leverage this, you must <strong>extract prompt from video</strong> focusing on PBR (Physically Based Rendering) lighting tokens.</p>
-      <p>Our tool isolates specific styles and lighting rigs, allowing you to replicate high-end commercial looks with a single technical text block.</p>
+      <p>Midjourney v6.1 introduced new aesthetic comprehension. To leverage this, you must <strong>extract prompt from video</strong> focusing on PBR lighting tokens.</p>
     `
   },
   {
@@ -183,10 +180,7 @@ const POSTS: BlogPost[] = [
     metaDesc: "How to extract temporal DNA from video to feed OpenAI Sora's physics engine.",
     category: "AI Video",
     readTime: "50 min",
-    content: `
-      <p>Sora requires more than just aesthetics; it needs physical vectors. To <strong>extract prompt from video</strong> for Sora, you must identify motion curves and collision dynamics.</p>
-      <p>V-Reverse Pro translates these physical movements into high-density tokens that inform Sora's fluid simulation engines.</p>
-    `
+    content: `<p>Sora requires more than just aesthetics; it needs physical vectors. Our tool helps you <strong>extract prompt from video</strong> including motion descriptors.</p>`
   },
   {
     id: "p4",
@@ -197,10 +191,7 @@ const POSTS: BlogPost[] = [
     metaDesc: "Master the extraction of light transport and Kelvin values from existing footage.",
     category: "Physics",
     readTime: "40 min",
-    content: `
-      <p>Light is the soul of any frame. Learn to <strong>extract prompt from video</strong> that accurately describes global illumination, ray-tracing reflections, and volumetric fog.</p>
-      <p>Using the Architect Workstation, you can map the specific light sources (Key, Fill, Rim) and their intensities into a prompt that AI models can execute perfectly.</p>
-    `
+    content: `<p>Light is the soul of the image. Learn to <strong>extract prompt from video</strong> that accurately describes global illumination.</p>`
   },
   {
     id: "p5",
@@ -211,10 +202,7 @@ const POSTS: BlogPost[] = [
     metaDesc: "Deconstruct focal lengths and apertures from any frame into technical text.",
     category: "Optics",
     readTime: "35 min",
-    content: `
-      <p>Is it Anamorphic or Spherical? When you <strong>extract prompt from video</strong>, lens metadata is the bridge between a 'nice image' and a 'cinematic masterpiece'.</p>
-      <p>Our system identifies depth of field, chromatic aberration, and bokeh shapes to give your prompts professional optical weight.</p>
-    `
+    content: `<p>Anamorphic or Spherical? When you <strong>extract prompt from video</strong>, lens metadata is crucial for the final look.</p>`
   },
   {
     id: "p6",
@@ -225,10 +213,7 @@ const POSTS: BlogPost[] = [
     metaDesc: "Learn why defining what is NOT in the image is as important as the subject.",
     category: "Strategy",
     readTime: "30 min",
-    content: `
-      <p>Effective prompts require clear boundaries. We show you how to <strong>extract prompt from video</strong> including the 'Negative DNA' – the specific artifacts and styles the AI must avoid.</p>
-      <p>Excluding noise, low-res textures, and unwanted stylistic shifts is key to professional output consistency.</p>
-    `
+    content: `<p>Effective prompts require clear boundaries. We show you how to <strong>extract prompt from video</strong> including safety and style filters.</p>`
   },
   {
     id: "p7",
@@ -239,10 +224,7 @@ const POSTS: BlogPost[] = [
     metaDesc: "Turn a single extraction into a full social media kit with hooks and descriptions.",
     category: "Marketing",
     readTime: "25 min",
-    content: `
-      <p>Convert your technical DNA into views. Learn to <strong>extract prompt from video</strong> while simultaneously generating viral captions, hooks, and technical SFX directions for editors.</p>
-      <p>Our Viral Social Kit bridges the gap between technical creation and audience retention.</p>
-    `
+    content: `<p>Convert your technical DNA into views. Learn to <strong>extract prompt from video</strong> that resonates with social algorithms.</p>`
   },
   {
     id: "p8",
@@ -253,26 +235,23 @@ const POSTS: BlogPost[] = [
     metaDesc: "Why investing in professional extraction tools pays off for agencies and creators.",
     category: "Business",
     readTime: "20 min",
-    content: `
-      <p>Quality inputs lead to quality outputs. To <strong>extract prompt from video</strong> at a professional level saves agencies hundreds of hours in trial-and-error costs.</p>
-      <p>V-Reverse Pro is the investment that scales your output quality while reducing your compute time.</p>
-    `
+    content: `<p>Quality inputs lead to quality outputs. <strong>Extract prompt from video</strong> to save hundreds of hours in trial and error.</p>`
   }
 ];
 
 const FAQ_ITEMS = [
-  { q: "How precise is the DNA extraction?", a: "Our technology operates with 95% fidelity, identifying parameters like lens focal length, Kelvin light temperature, and specific PBR material types from any source media." },
-  { q: "Which AI models are supported?", a: "Midjourney v6.1, OpenAI Sora, Runway Gen-3, Luma Dream Machine, Kling AI, and Google Veo. We optimize the prompt logic for the specific model you select." },
-  { q: "How do I receive access after purchase?", a: "Access is immediate via the Architect Portal. Once Hotmart approves your payment, simply login with your purchase email to unlock the terminal." },
-  { q: "Does it work with YouTube and TikTok URLs?", a: "Yes, the Pro terminal accepts direct URLs. It uses an internal search tool to analyze remote frames and extract the technical prompt without downloading." },
-  { q: "Can I use it for high-end commercial projects?", a: "Absolutely. V-Reverse Pro is designed for elite agencies and high-end visual creators who need exact aesthetic replication." }
+  { q: "How precise is the DNA extraction?", a: "Our technology operates with 95% fidelity, identifying parameters like lens focal length, Kelvin light temperature, and specific PBR material types." },
+  { q: "Which AI models are supported?", a: "Midjourney v6.1, OpenAI Sora, Runway Gen-3, Luma Dream Machine, Kling AI, and Google Veo." },
+  { q: "How do I receive access after purchase?", a: "Access is immediate via the Architect Portal after Hotmart approval. Simply login with your purchase email." },
+  { q: "Does it work with YouTube URLs?", a: "Yes, the Pro terminal accepts direct URLs, performing analysis via search tools and remote frame processing." },
+  { q: "Can I use it for commercial projects?", a: "Absolutely. V-Reverse Pro is designed for elite agencies and high-end visual creators." }
 ];
 
 const FEATURES_LIST = [
-  { title: "Optical Engineering", desc: "Precise mapping of lenses, sensors, and apertures for physical recreation in AI prompts." },
-  { title: "Material DNA", desc: "Deconstruction of PBR textures, reflection coefficients, and spectral light dispersion." },
-  { title: "Neural Dynamics", desc: "Capture of motion vectors, physics of collision, and fluid dynamics for video models." },
-  { title: "Engine Synergy", desc: "Automatic optimization for Midjourney, Sora, Runway, Kling, and all major AI engines." }
+  { title: "Optical Engineering", desc: "Precise mapping of lenses, sensors, and apertures for physical recreation in prompts." },
+  { title: "Material DNA", desc: "Deconstruction of PBR textures, reflection coefficients, and spectral dispersion." },
+  { title: "Neural Dynamics", desc: "Capture of motion vectors and collision physics for advanced video models." },
+  { title: "Engine Synergy", desc: "Automatic optimization for Midjourney, Sora, Runway, Kling, and more." }
 ];
 
 const App: React.FC = () => {
@@ -440,6 +419,7 @@ const App: React.FC = () => {
 
       {status === AnalysisStatus.COMPLETED && result && (
         <div className="space-y-16 animate-in fade-in slide-in-from-bottom-10 duration-1000">
+          {/* Master Prompt Section */}
           <div className="bg-white/[0.02] border border-white/10 p-8 md:p-16 rounded-[3rem] space-y-10 shadow-premium">
             <div className="flex flex-col sm:flex-row justify-between items-center border-b border-white/5 pb-8 gap-4">
               <h2 className="text-4xl font-black uppercase italic tracking-tighter">{t.masterDNA}</h2>
@@ -453,6 +433,7 @@ const App: React.FC = () => {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
+            {/* Social Kit Section */}
             <div className="bg-white/[0.02] border border-white/10 p-10 rounded-[2.5rem] space-y-8">
               <h2 className="text-2xl font-black uppercase italic text-indigo-400 tracking-tighter">{t.socialKitTitle}</h2>
               <div className="space-y-6">
@@ -466,9 +447,50 @@ const App: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            {/* Thumbnail Blueprint Section */}
+            <div className="bg-white/[0.02] border border-white/10 p-10 rounded-[2.5rem] space-y-8">
+              <h2 className="text-2xl font-black uppercase italic text-orange-400 tracking-tighter">{t.thumbnailTitle}</h2>
+              <div className="space-y-6">
+                <div className="bg-black/40 p-6 rounded-2xl border border-white/5 group hover:border-orange-500/30 transition-all">
+                  <span className="text-[8px] font-black uppercase text-orange-500 tracking-widest mb-2 block">Composition Strategy</span>
+                  <p className="text-sm font-bold italic leading-relaxed text-slate-300">{result.thumbnailBlueprint.visualComposition}</p>
+                </div>
+                <div className="bg-black/40 p-6 rounded-2xl border border-white/5 relative">
+                  <span className="text-[8px] font-black uppercase text-orange-500 tracking-widest mb-2 block">Thumbnail Prompt</span>
+                  <p className="text-xs text-slate-500 italic mb-4">"{result.thumbnailBlueprint.prompt}"</p>
+                  <button onClick={() => copyToClipboard(result.thumbnailBlueprint.prompt)} className="w-full bg-white/5 border border-white/5 py-2 rounded-lg text-[8px] font-black uppercase tracking-widest hover:bg-white/10">Copy Thumb Prompt</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Viral Variations Section */}
+          <div className="bg-white/[0.02] border border-white/10 p-10 rounded-[3rem] space-y-10">
+            <h2 className="text-3xl font-black uppercase italic tracking-tighter text-center">{t.variationsTitle}</h2>
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+              {result.viralVariations.map((v, idx) => (
+                <div key={idx} className="bg-black/40 border border-white/5 p-8 rounded-3xl space-y-4 group hover:border-indigo-500/50 transition-all flex flex-col">
+                  <div className="flex justify-between items-start">
+                    <span className="bg-indigo-600/10 text-indigo-400 px-3 py-1 rounded-full text-[8px] font-black uppercase tracking-widest">{v.type}</span>
+                    <button onClick={() => copyToClipboard(v.fullModifiedPrompt)} className="text-slate-600 hover:text-indigo-400"><IconCopy className="w-4 h-4" /></button>
+                  </div>
+                  <h4 className="text-lg font-black uppercase italic tracking-tight group-hover:text-indigo-400 transition-colors">{v.title}</h4>
+                  <p className="text-[10px] text-slate-500 font-bold leading-relaxed">{v.strategy}</p>
+                  <div className="flex-grow"></div>
+                  <div className="pt-4 border-t border-white/5">
+                    <p className="text-[9px] text-slate-600 italic line-clamp-3">"{v.fullModifiedPrompt}"</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-1 gap-8">
+            {/* Negative DNA Section */}
             <div className="bg-white/[0.02] border border-white/10 p-10 rounded-[2.5rem] space-y-8">
               <h2 className="text-2xl font-black uppercase italic text-pink-500 tracking-tighter">{t.negativePromptTitle}</h2>
-              <div className="bg-black/40 p-8 rounded-2xl border border-white/5 text-xs italic opacity-70 leading-relaxed font-mono min-h-[200px]">
+              <div className="bg-black/40 p-8 rounded-2xl border border-white/5 text-xs italic opacity-70 leading-relaxed font-mono min-h-[150px]">
                 {result.negativePrompt}
               </div>
               <button onClick={() => copyToClipboard(result.negativePrompt)} className="w-full bg-white/5 border border-white/10 py-5 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-white/10 transition-all">{t.copy} Negative DNA</button>
