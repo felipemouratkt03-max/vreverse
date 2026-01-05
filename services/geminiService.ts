@@ -1,4 +1,3 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import { VideoPromptResult, InputData, WorkstationConfig } from "../types";
 
@@ -13,15 +12,10 @@ const getSystemInstruction = (targetModel: string, config: WorkstationConfig) =>
   - Base Style Profile: ${config.promptStyle}
 
   STRICT GUIDELINES:
-  1. MASTER PROMPT: A technical blueprint exceeding 600 words. Describe light transport, spectral dispersion, subsurface scattering coefficients, and specific virtual lens hardware (e.g., "Cooke Anamorphic /i 75mm T2.3").
-  2. SOCIAL KIT: High-performance viral metadata (Hooks, SFX Direction, Description).
-  3. THUMBNAIL: A high-conversion CTR-optimized prompt for Midjourney.
-  4. SUBTLE VARIATIONS: Generate 5 variations. These are NOT style changes. They are surgical, subtle refinements of the MASTER PROMPT. Each should maintain 90% of the original DNA but tweak specific technical parameters.
-     - Variation 1: "Atmospheric Weight" (Slightly enhance volumetrics, haze, and light scattering without changing the subject).
-     - Variation 2: "Optical Depth Shift" (Change the lens focal length and aperture for a different focus falloff while keeping the same composition).
-     - Variation 3: "Material Micro-Detail" (Intensify surface textures, micro-scratches, and PBR material accuracy).
-     - Variation 4: "Color Science Refinement" (Slightly adjust the color grading, white balance, and spectral response for a different "film stock" feel).
-     - Variation 5: "Shadow & Contrast Geometry" (Adjust the lighting ratios and shadow softness to create more or less dramatic tension).
+  1. MASTER PROMPT: A technical blueprint exceeding 600 words. Describe light transport, spectral dispersion, subsurface scattering coefficients, and specific virtual lens hardware.
+  2. SOCIAL KIT: High-performance viral metadata.
+  3. THUMBNAIL: A high-conversion CTR-optimized prompt.
+  4. SUBTLE VARIATIONS: Generate 5 variations focusing on technical shifts (Optics, Volumetrics, Materials).
 
   MANDATORY: Return ONLY valid JSON. All output in English. No markdown backticks.
 `;
@@ -81,13 +75,19 @@ export const analyzeContent = async (
         negativePrompt: { type: Type.STRING }
       },
       required: ["subjectDNA", "styleDNA", "environmentDNA", "fullMasterPrompt", "socialKit", "thumbnailBlueprint", "viralVariations", "negativePrompt"]
-    }
+    },
+    tools: input.type === 'url' ? [{ googleSearch: {} }] : []
   };
 
   const parts: any[] = [
-    { text: `Reverse engineer this media for ${targetModel} workstation. Fidelity: ${workstationConfig.fidelity}%. Style override: ${workstationConfig.promptStyle}. Generate subtle technical variations.` },
-    { inlineData: { data: input.base64, mimeType: input.mimeType } }
+    { text: `Reverse engineer this media for ${targetModel} workstation. Fidelity: ${workstationConfig.fidelity}%. Style override: ${workstationConfig.promptStyle}.` }
   ];
+
+  if (input.type === 'file') {
+    parts.push({ inlineData: { data: input.base64, mimeType: input.mimeType } });
+  } else {
+    parts.push({ text: `Analyze the video content at this URL: ${input.url}` });
+  }
 
   const response = await ai.models.generateContent({ 
     model: modelName, 
